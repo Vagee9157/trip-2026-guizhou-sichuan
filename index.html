@@ -348,6 +348,10 @@
   .dotkey{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--indigo);vertical-align:middle;margin-right:2px}
 
   @media (max-width:560px){
+    .route{padding-top:16px}
+    .stop::before{width:8px;height:8px;top:-16px}
+    .stop b{font-size:13px}
+    .stop span{font-size:9px;letter-spacing:0}
     .pair,.pack,.pits{grid-template-columns:1fr}
     .day-head{grid-template-columns:auto 1fr;padding:12px 16px} .day-head .tag.stay{grid-column:1/-1;justify-self:start}
     .dblock .date{font-size:26px}
@@ -385,7 +389,7 @@
 body{background-color:var(--ground);background-image:radial-gradient(rgba(59,48,41,.075) 1px,transparent 1px);background-size:17px 17px}
 .wrap{gap:44px}
 header{gap:16px}
-h1{font-family:"Ma Shan Zheng",var(--serif);font-weight:400;font-size:56px;color:var(--ink);letter-spacing:.03em;position:relative;width:max-content;padding-bottom:6px}
+h1{font-family:"Ma Shan Zheng",var(--serif);font-weight:400;font-size:clamp(30px,8vw,56px);color:var(--ink);letter-spacing:.03em;position:relative;width:max-content;padding-bottom:6px}
 h1::after{content:"";position:absolute;left:2px;right:2px;bottom:-2px;height:9px;background:var(--tape-a);z-index:-1;border-radius:4px;transform:rotate(-.6deg)}
 h1.thin{color:var(--ink)}
 .eyebrow{background:var(--tape-b);display:inline-block;padding:4px 12px;border-radius:3px;transform:rotate(-1.2deg);color:var(--ink-soft);width:max-content;letter-spacing:.14em}
@@ -477,6 +481,18 @@ footer{border-top:2px dashed var(--line)}
     .pk{ padding:6px 0; } .pk b{ font-size:10pt; } .pk span{ font-size:9pt; }
     .cost tr.grp td{ font-size:12pt; }
     footer{ padding:12px 0 0; }
+  }
+
+  /* 窄屏（手机）收紧 */
+  @media (max-width:560px){
+    .stop b{ font-size:14px; }
+    .stop span{ font-size:9px; letter-spacing:0; }
+    .route::before{ height:2px; }
+    h1::after{ height:7px; bottom:0; }
+    .todo{ padding:22px 16px 18px; } .todo::before{ width:96px; margin-left:-48px; }
+    .day-body{ padding:16px 15px 18px; } .day-head{ padding:15px 15px 11px; }
+    .dblock{ padding-right:12px; }
+    .tile,.pit,.tip{ padding:13px 14px 14px; }
   }
 </style></head><body>
 
