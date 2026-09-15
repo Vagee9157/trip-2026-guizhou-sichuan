@@ -7,7 +7,6 @@
 - **手账版（主）**：https://vagee9157.github.io/trip-2026-guizhou-sichuan/
   （同一页也可用 https://vagee9157.github.io/trip-2026-guizhou-sichuan/journal.html）
 - **基础版**：https://vagee9157.github.io/trip-2026-guizhou-sichuan/classic.html
-- PDF：[手账版](https://vagee9157.github.io/trip-2026-guizhou-sichuan/plan.pdf) · [基础版](https://vagee9157.github.io/trip-2026-guizhou-sichuan/classic.pdf)
 
 两版内容完全一致，只是配色和排版不同。手机直接开链接就能看，不用装任何东西。
 
@@ -19,15 +18,14 @@
 
 ## 文件
 
-两版内容逐字相同，只是配色排版不同，各有网页、PDF、长图三种形态。
+两版内容逐字相同，只是配色排版不同，各有网页和长图两种形态。
 
 | | 手账贴纸版（主） | 基础版 |
 |---|---|---|
 | 网页 | `index.html` / `journal.html` | `classic.html` |
-| PDF | `plan.pdf` | `classic.pdf` |
 | 长图 | `plan-long.png` | `classic-long.png` |
 
-PDF 都是 A4、10 页，同一天不跨页，可直接打印。长图适合微信直接发。
+长图是整页截图，适合微信直接发；网页用手机打开最舒服，想打印的话浏览器直接打印即可（已做好打印排版）。
 
 ## 行程
 
