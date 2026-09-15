@@ -88,8 +88,8 @@
   }
   h1 .thin, h1.thin{color:var(--indigo)}
   /* 线路图：站点在一条线上，像车次表头 */
-  .route{display:grid;grid-template-columns:repeat(6,1fr);position:relative;padding-top:20px;margin-top:6px}
-  .route::before{content:"";position:absolute;left:calc(100%/12);right:calc(100%/12);top:4px;height:2px;background:var(--line)}
+  .route{display:grid;grid-template-columns:repeat(8,1fr);position:relative;padding-top:20px;margin-top:6px}
+  .route::before{content:"";position:absolute;left:calc(100%/16);right:calc(100%/16);top:4px;height:2px;background:var(--line)}
   .stop{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;position:relative;min-width:0}
   .stop::before{content:"";position:absolute;top:-20px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--calm);box-sizing:border-box}
   .stop.peak::before{border-color:var(--busy);background:var(--busy)}
@@ -362,7 +362,7 @@
     .foot-wrap{grid-template-columns:1fr;justify-items:center;gap:18px;text-align:center}
     .route{padding-top:16px}
     .stop::before{width:8px;height:8px;top:-16px}
-    .stop b{font-size:13px}
+    .stop b{font-size:12.5px}
     .stop span{font-size:9px;letter-spacing:0}
     .pair,.pack,.pits{grid-template-columns:1fr}
     /* 卡头两行：上行 日期 ┄ 住哪；下行 标题＋标签 */
@@ -411,12 +411,14 @@
   <div class="eyebrow">9.27 — 10.4 · 八天七晚 · 高铁为主</div>
   <h1 class="thin">2026 牛马逃离计划</h1>
   <div class="route" aria-label="线路">
-    <div class="stop"><b>贵阳</b><span>9.27–29</span></div>
+    <div class="stop peak"><b>贵阳</b><span>9.27</span></div>
     <div class="stop"><b>黄果树</b><span>9.28</span></div>
     <div class="stop"><b>乐山</b><span>9.29</span></div>
-    <div class="stop"><b>成都</b><span>9.29–10.4</span></div>
     <div class="stop"><b>都江堰</b><span>9.30</span></div>
+    <div class="stop peak"><b>武侯祠</b><span>10.1</span></div>
     <div class="stop peak"><b>青城山</b><span>10.2</span></div>
+    <div class="stop peak"><b>草堂</b><span>10.3</span></div>
+    <div class="stop peak"><b>返程</b><span>10.4</span></div>
   </div>
 </header>
 
@@ -664,6 +666,8 @@
   <div class="pair">
     <div class="tip"><h3>鞋是这趟最该上心的东西</h3><p>黄果树湿石头路、都江堰下坡 3 小时、青城山台阶——<b>防滑、穿熟的鞋，别穿新鞋。多带两双袜子。</b></p></div>
     <div class="tip"><h3>吃：两种辣，一条坎</h3><p>贵州酸辣、四川麻辣，连吃八天<b>肠胃药必带</b>。<b>折耳根是道坎</b>，裹卷、丝娃娃、蘸水都放，点单时说「不要折耳根」。不辣的退路：乐山跷脚牛肉清汤、火锅点鸳鸯、贵阳肠旺面和豆腐圆子。</p></div>
+    <div class="tip"><h3>下雨了怎么办</h3><p><b>成都 9 月降水 115 mm，9.29–9.30 最可能碰上。</b>黄果树雨天水更大更壮观，石阶滑、雨衣园里买；<b>乐山游船遇大雨或水位异常会停航</b>，当天先打 0833-2355557 问；都江堰和青城山全程户外，有冲锋衣照走，<b>青城山雷雨会停索道</b>。市区那两天改室内：<b>成都博物馆、四川博物院都免费</b>（公众号实名预约，带身份证原件，周一闭馆），或者干脆泡茶馆。</p></div>
+    <div class="tip"><h3>存着这几个号码</h3><p>黄果树 <b>400-800-9998</b> · 乐山游船 <b>0833-2355557</b> · 铁路客服 <b>12306</b>。景区临时调整、船班停运、车次晚点，打这三个比刷小程序快。<b>两家酒店的电话存进手机</b>，晚归或退房有变直接打。</p></div>
   </div>
 
   <h2>必备清单</h2>
