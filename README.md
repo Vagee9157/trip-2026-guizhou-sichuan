@@ -5,6 +5,7 @@
 ## 在线看
 
 - **手账版（主）**：https://vagee9157.github.io/trip-2026-guizhou-sichuan/
+  （同一页也可用 https://vagee9157.github.io/trip-2026-guizhou-sichuan/journal.html）
 - **基础版**：https://vagee9157.github.io/trip-2026-guizhou-sichuan/classic.html
 - PDF：[手账版](https://vagee9157.github.io/trip-2026-guizhou-sichuan/plan.pdf) · [基础版](https://vagee9157.github.io/trip-2026-guizhou-sichuan/classic.pdf)
 
@@ -16,7 +17,7 @@
 
 | | 手账贴纸版（主） | 基础版 |
 |---|---|---|
-| 网页 | `index.html` | `classic.html` |
+| 网页 | `index.html` / `journal.html` | `classic.html` |
 | PDF | `plan.pdf` | `classic.pdf` |
 | 长图 | `plan-long.png` | `classic-long.png` |
 

@@ -1,0 +1,864 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>2026 牛马逃离计划 · 手账贴纸版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    /* 苗族蜡染靛蓝 + 喀斯特灰 */
+    --ink:#15212e;
+    --ink-soft:#4a5a6b;
+    --ink-faint:#7d8b98;
+    --ground:#eff0ec;
+    --surface:#ffffff;
+    --line:#d3d6cf;
+    --line-soft:#e2e4de;
+    --indigo:#1f4068;
+    --indigo-bright:#2f6394;
+    --calm:#4a7a5c;      /* 节前 · 人少 */
+    --busy:#c2703d;      /* 国庆 · 人挤 */
+    --busy-deep:#a84f2c;
+    --calm-wash:#e3ece5;
+    --busy-wash:#f6e6d9;
+    --indigo-wash:#e4eaf1;
+    --head:#1f4068; --head-peak:#a84f2c; --head-ink:#ffffff;
+
+    --serif:"Noto Serif SC",Songti SC,Georgia,serif;
+    --sans:"Noto Sans SC",-apple-system,"PingFang SC",sans-serif;
+    --mono:"IBM Plex Mono","SF Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e4dc;
+      --ink-soft:#a7b1bc;
+      --ink-faint:#78838f;
+      --ground:#131920;
+      --surface:#1a222c;
+      --line:#2c3742;
+      --line-soft:#232c36;
+      --indigo:#7aa8d4;
+      --indigo-bright:#9cc2e6;
+      --calm:#7fb391;
+      --busy:#e0a074;
+      --busy-deep:#efb68c;
+      --calm-wash:#1e2b24;
+      --busy-wash:#2e2319;
+      --indigo-wash:#1c2733;
+      --head:#22405f; --head-peak:#7e3d22; --head-ink:#f2efe8;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e8e4dc;
+    --ink-soft:#a7b1bc;
+    --ink-faint:#78838f;
+    --ground:#131920;
+    --surface:#1a222c;
+    --line:#2c3742;
+    --line-soft:#232c36;
+    --indigo:#7aa8d4;
+    --indigo-bright:#9cc2e6;
+    --calm:#7fb391;
+    --busy:#e0a074;
+    --busy-deep:#efb68c;
+    --calm-wash:#1e2b24;
+    --busy-wash:#2e2319;
+    --indigo-wash:#1c2733;
+    --head:#22405f; --head-peak:#7e3d22; --head-ink:#f2efe8;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:36px 20px 72px;display:flex;flex-direction:column;gap:40px}
+
+  /* ---------- 页眉 ---------- */
+  header{display:flex;flex-direction:column;gap:14px}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  h1{
+    font-family:var(--serif);font-weight:700;font-size:clamp(30px,7vw,42px);
+    line-height:1.22;margin:0;text-wrap:balance;letter-spacing:.02em;
+  }
+  h1 .thin, h1.thin{color:var(--indigo)}
+  /* 线路图：站点在一条线上，像车次表头 */
+  .route{display:grid;grid-template-columns:repeat(6,1fr);position:relative;padding-top:20px;margin-top:6px}
+  .route::before{content:"";position:absolute;left:calc(100%/12);right:calc(100%/12);top:4px;height:2px;background:var(--line)}
+  .stop{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;position:relative;min-width:0}
+  .stop::before{content:"";position:absolute;top:-20px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--calm);box-sizing:border-box}
+  .stop.peak::before{border-color:var(--busy);background:var(--busy)}
+  .stop b{font-family:var(--serif);font-size:15px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+  .stop span{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.02em;white-space:nowrap}
+
+  /* ---------- 通用块 ---------- */
+  h2{
+    font-family:var(--serif);font-weight:500;font-size:19px;margin:0 0 2px;
+    letter-spacing:.03em;display:flex;align-items:center;gap:14px;
+  }
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  section{display:flex;flex-direction:column;gap:16px}
+  .lede{color:var(--ink-soft);margin:0;max-width:62ch}
+
+  /* ---------- 人流条 ---------- */
+  .meter{display:flex;flex-direction:column;gap:9px}
+  .meter-bars{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;align-items:end;height:76px;border-bottom:1px solid var(--line);padding:0 2px}
+  .bar{border-radius:2px 2px 0 0;position:relative}
+  .bar.lo{background:var(--calm);opacity:.85}
+  .bar.hi{background:var(--busy)}
+  .bar .flag{position:absolute;left:0;right:0;top:6px;text-align:center;font-family:var(--mono);font-size:9.5px;line-height:1.35;color:#fff;letter-spacing:.04em;opacity:.95}
+  .meter-x{
+    display:grid;grid-template-columns:repeat(8,1fr);gap:4px;
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);text-align:center;line-height:1.4;
+  }
+  .meter-x b{display:block;font-weight:500;color:var(--ink-soft)}
+  .meter-key{display:flex;gap:18px;font-size:12.5px;color:var(--ink-soft);flex-wrap:wrap}
+  .meter-key i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+
+  /* ---------- 待办 ---------- */
+  .todo{border:1px solid var(--busy);background:var(--busy-wash);border-radius:3px;padding:20px 22px;display:flex;flex-direction:column;gap:14px}
+  .todo h2{color:var(--busy-deep)} .todo h2::after{background:var(--busy);opacity:.35}
+  .todo ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+  .todo li{display:grid;grid-template-columns:16px 88px 1fr;gap:12px;align-items:start}
+  .todo li::before{content:"";width:14px;height:14px;border:1.5px solid var(--busy-deep);border-radius:2px;margin-top:6px;opacity:.75;box-sizing:border-box}
+  .todo .when{padding-top:4px}
+  .todo .when{font-family:var(--mono);font-size:11.5px;color:var(--busy-deep);letter-spacing:.02em;white-space:nowrap}
+  .todo li p{margin:0}
+  .todo li p em{font-style:normal;color:var(--ink-soft);font-size:13.5px;display:block}
+
+  /* ---------- 每日 ---------- */
+  .days{display:flex;flex-direction:column;gap:28px}
+  .day{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    box-shadow:0 1px 0 rgba(21,33,46,.04),0 6px 18px -12px rgba(21,33,46,.18);
+  }
+  .day .stripe{display:none}
+  .day-body{padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+  /* 卡头：左边日期块像车票的日期戳，中间标题＋标签，右边住宿 */
+  /* 站牌式：实色表头、白字；国庆换深橙 */
+  .day-head{display:grid;grid-template-columns:auto 1fr auto;gap:6px 20px;align-items:center;padding:14px 20px 13px;background:var(--head);color:var(--head-ink)}
+  .day.peak .day-head{background:var(--head-peak)}
+  .dblock{display:flex;flex-direction:column;line-height:1;padding-right:18px;border-right:1px solid rgba(255,255,255,.28);min-width:64px}
+  .dblock .date{font-family:var(--serif);font-size:30px;font-weight:700;letter-spacing:.01em;color:var(--head-ink);font-variant-numeric:tabular-nums}
+  .dblock .sub{font-family:var(--mono);font-size:10.5px;color:var(--head-ink);opacity:.75;letter-spacing:.1em;margin-top:6px;white-space:nowrap}
+  .dmid{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .dmid .tags{display:flex;flex-wrap:wrap;gap:6px} .dmid .tags:empty{display:none}
+  .day .day-head h3.title{color:var(--head-ink)}
+  .day-head .tag{background:transparent;border-color:rgba(255,255,255,.45);color:var(--head-ink)}
+  .day.peak .day-head .tag{color:var(--head-ink)}
+  .day-head .tag.stay{padding:4px 11px;border-radius:12px;font-size:11px;align-self:center;background:var(--head-ink);border-color:var(--head-ink);color:var(--head)}
+  .day.peak .day-head .tag.stay{color:var(--head-peak)}
+  .tag{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:2px 7px;border-radius:2px;
+    background:var(--surface);color:var(--calm);white-space:nowrap;border:1px solid var(--line-soft);
+  }
+  .day.peak .tag{color:var(--busy-deep)}
+  .tag.stay{color:var(--indigo);}
+  .day h3.title{margin:0;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--indigo);line-height:1.3}
+  /* 时刻表：时间列右侧一条竖线，每一站一个点 */
+  .legs{--tcol:62px;--tgap:26px;display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none;position:relative}
+  .legs::before{content:"";position:absolute;top:8px;bottom:8px;left:calc(var(--tcol) + var(--tgap)/2 - .5px);width:1px;background:var(--line)}
+  .leg{display:grid;grid-template-columns:var(--tcol) 1fr;gap:var(--tgap);align-items:baseline}
+  .leg .t{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--ink-soft);font-variant-numeric:tabular-nums;letter-spacing:.02em;position:relative;text-align:right;padding-right:0}
+  .leg .t::after{content:"";position:absolute;top:50%;right:calc(-1*var(--tgap)/2 - 3.5px);width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--surface);border:1.5px solid var(--indigo);box-sizing:border-box}
+  .leg .t.ride::after{background:var(--indigo)}
+  .leg .t.ride{color:var(--indigo);font-weight:600}
+  .leg .d{margin:0;min-width:0}
+  .leg .d strong{font-weight:500}
+  .note{
+    font-size:13px;color:var(--ink-soft);border-left:2px solid var(--line);
+    padding-left:12px;margin:2px 0 0;
+  }
+  .note b{color:var(--ink);font-weight:500}
+
+  /* ---------- 圆润化：圆角 + 柔投影 + 渐变表头 ---------- */
+  :root{
+    --head-grad:linear-gradient(120deg,#1f4068,#2f6394);
+    --head-peak-grad:linear-gradient(120deg,#a84f2c,#c2703d);
+    --shadow-lg:0 18px 46px -28px rgba(21,33,46,.5);
+    --shadow-md:0 12px 30px -22px rgba(21,33,46,.45);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --head-grad:linear-gradient(120deg,#22405f,#2d5074);
+      --head-peak-grad:linear-gradient(120deg,#7e3d22,#9c5334);
+      --shadow-lg:0 18px 46px -28px rgba(0,0,0,.7);
+      --shadow-md:0 12px 30px -22px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --head-grad:linear-gradient(120deg,#22405f,#2d5074);
+    --head-peak-grad:linear-gradient(120deg,#7e3d22,#9c5334);
+    --shadow-lg:0 18px 46px -28px rgba(0,0,0,.7);
+    --shadow-md:0 12px 30px -22px rgba(0,0,0,.6);
+  }
+  body{
+    background-image:
+      repeating-radial-gradient(circle at 12% -6%,transparent 0 44px,rgba(31,64,104,.05) 44px 45px),
+      repeating-radial-gradient(circle at 94% 106%,transparent 0 52px,rgba(31,64,104,.045) 52px 53px);
+  }
+  h2{font-weight:600;color:var(--indigo)}
+  .bar{border-radius:10px 10px 2px 2px}
+  .bar.lo{background:linear-gradient(180deg,#5f9070,#3f6a50);opacity:1}
+  .bar.hi{background:linear-gradient(180deg,#d18a5e,#a84f2c)}
+  .meter-bars{border-bottom:1.5px solid var(--indigo)}
+  .todo{border:none;border-radius:20px;box-shadow:var(--shadow-lg);border-top:4px solid var(--busy);padding:26px 28px}
+  .todo li::before{border-radius:5px}
+  .days{gap:30px}
+  .day{border:none;border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .day-head{background:var(--head-grad);padding:20px 26px 18px;border-bottom:none}
+  .day.peak .day-head{background:var(--head-peak-grad)}
+  .dblock{border-right-color:rgba(255,255,255,.28);padding-right:20px}
+  .dblock .date{font-weight:600;font-size:32px}
+  .dblock .sub{letter-spacing:.14em}
+  .day-head .tag{border-radius:999px;background:rgba(255,255,255,.08)}
+  .day-head .tag.stay{border-radius:999px;background:rgba(255,255,255,.96);font-weight:500}
+  .day-body{padding:22px 26px 26px}
+  .leg .t::after{border-width:2px}
+  .note{border-left:3px solid var(--calm);background:var(--calm-wash);padding:10px 14px;border-radius:0 12px 12px 0}
+  .tile,.pit{border:none;border-radius:16px;box-shadow:var(--shadow-md);background:var(--surface);padding:16px 18px 17px}
+  .pit.hot{box-shadow:inset 0 0 0 1.5px var(--busy),var(--shadow-md)}
+  .tip{border-left:5px solid var(--indigo);border-radius:0 16px 16px 0;box-shadow:var(--shadow-md)}
+  .paid,.due,.tbd{border-radius:999px}
+  .pk::before{border-radius:5px}
+  footer{border-top:none;background:var(--surface);border-radius:16px;padding:18px 22px;box-shadow:var(--shadow-md)}
+
+  /* ---------- 打印 / PDF ---------- */
+  @media print{
+    /* 打印一律走浅色，别把深色模式印出来 */
+    :root{
+      --ink:#15212e; --ink-soft:#3f4e5c; --ink-faint:#6b7885;
+      --ground:#ffffff; --surface:#ffffff;
+      --line:#c9c3b8; --line-soft:#ddd8cf;
+      --indigo:#1f4068; --calm:#3d6b4e; --busy:#a8562f; --busy-deep:#8d431f;
+      --calm-wash:#e8efe9; --busy-wash:#f8ece2; --indigo-wash:#e6ecf3;
+      --head:#1f4068; --head-peak:#a84f2c; --head-ink:#ffffff;
+    }
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    /* 页边距归零：Chrome 的页眉页脚画在边距里，没边距就画不出来；留白改由 .wrap 自己撑 */
+    @page{ size:A4; margin:14mm 0; }  /* 上下留白由页边距给，每页顶部都有 */
+    body{ background:#fff; font-size:10.5pt; line-height:1.6; }
+    .wrap{ max-width:none; padding:0 12mm; gap:22px; }
+    /* 自由流式：不强制分页，只保证单行不劈开、标题不孤悬页脚 */
+    .days{ gap:16px; }
+    .day{ break-inside:avoid; page-break-inside:avoid; }  /* 一天一整块，塞不下就整块挪到下一页 */
+    h2{ break-after:avoid; page-break-after:avoid; }
+    /* 两天要塞进一页，字和间距都收一点 */
+    .day-body{ padding:12px 18px 14px; gap:8px; }
+    .legs{ gap:3px; }
+    .leg .d{ font-size:9.5pt; line-height:1.5; }
+    .note{ font-size:9pt; line-height:1.5; }
+    h1{ font-size:26pt; }
+    h2{ font-size:14pt; }
+    .day h3.title{ font-size:13pt; }
+    /* 不要把一个卡片劈到两页 */
+    .todo li, .leg, .note, footer{ break-inside:avoid; page-break-inside:avoid; }
+    .day-head, .day h3.title{ break-after:avoid; page-break-after:avoid; }
+    .facts tr{ break-inside:avoid; page-break-inside:avoid; }
+    .meter{ break-inside:avoid; page-break-inside:avoid; }  /* 日历框允许跨页，让它接在首页下面 */
+    /* 每天从新的一段开始，别贴着上一天的结尾 */
+    .scroller{ overflow:visible; }
+    .facts{ font-size:9.5pt; }
+    .wx{ grid-template-columns:repeat(3,1fr); gap:8px; } .tile{ padding:8px 11px 9px; } .tile .big{ font-size:16pt; } .tile p{ font-size:9pt; }
+    .pair{ gap:8px; } .tip{ padding:8px 12px 9px; } .tip h3{ font-size:11pt; } .tip p{ font-size:9pt; }
+    .pack{ gap:0 18px; } .pk{ padding:6px 0; } .pk span{ font-size:9pt; } .pk b{ font-size:10pt; }
+    .pits{ gap:8px; } .pit{ padding:8px 11px 9px; break-inside:avoid; page-break-inside:avoid; } .pit p{ font-size:9pt; }
+    .sumstrip{ gap:8px; } .sumstrip .tile .big{ font-size:14pt; }
+    .tile,.tip,.pit{ break-inside:avoid; page-break-inside:avoid; }
+    /* 固定分页：P1 头+人流+日历 / P2 D1-2 / P3 D3 / P4 D4-5 / P5 D6-8 / P6 天气+必备 / 之后自由 */
+    .days, .pb{ break-before:page; page-break-before:always; }
+    .todo{ padding:16px 18px; gap:10px; } .todo ul{ gap:8px; } .todo li p em{ font-size:9pt; line-height:1.5; } .todo li p{ font-size:10pt; }
+    .meter-bars{ height:56px; } .meter{ gap:6px; } .route{ padding-top:16px; margin-top:0; } header{ gap:10px; }
+    .todo ul{ gap:6px; } .wrap{ gap:18px; }
+    .cost{ font-size:9pt; }
+    .cost th,.cost td{ padding:3.5px 6px 3.5px 0; }
+    .cost tr.grp td{ padding-top:10px; font-size:11pt; }
+    .cost tr.tot td{ padding-top:8px; font-size:12pt; }
+    .facts th{ width:84px; }
+    .legs{ --tcol:62px; --tgap:24px; }
+    .day-head{ padding:9px 18px 8px; gap:4px 14px; } .dblock .date{ font-size:19pt; } .dblock{ padding-right:12px; min-width:52px; } .dmid{ gap:3px; }
+    .day{ box-shadow:none; }
+    .todo li{ grid-template-columns:14px 92px 1fr; }
+  }
+
+  /* ---------- 花销 ---------- */
+  .cost{width:100%;border-collapse:collapse;font-size:13.5px}
+  .cost th,.cost td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line-soft);vertical-align:baseline}
+  .cost th{text-align:left;font-weight:500;color:var(--ink-faint);font-family:var(--mono);font-size:11px;letter-spacing:.08em}
+  .cost td{color:var(--ink-soft)}
+  .cost td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+  .cost tr.grp td{padding-top:18px;font-weight:700;color:var(--ink);font-family:var(--serif);font-size:15px;border-bottom:1px solid var(--line)}
+  .cost tr.sum td{font-weight:700;color:var(--ink);border-bottom:2px solid var(--line)}
+  .cost tr.tot td{font-weight:700;color:var(--indigo);font-size:15.5px;border-bottom:none;padding-top:14px}
+  .cost .paid,.cost .due,.cost .tbd,.lede .paid,.lede .due{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;white-space:nowrap;display:inline-block;padding:1px 8px;border-radius:10px;line-height:1.6}
+  .paid{color:var(--calm);background:var(--calm-wash)}
+  .due{color:var(--busy-deep);background:var(--busy-wash)}
+  .tbd{color:var(--ink-faint);background:var(--line-soft)}
+  .cost td:last-child{text-align:right;padding-right:0}
+  .cost tr.grp td.num{font-family:var(--mono);font-size:13.5px;color:var(--ink)}
+  .sumstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .sumstrip .tile .big{font-size:19px}
+  .sumstrip .tile.tot .big{color:var(--busy-deep)}
+
+  /* ---------- 天气瓦片 / 提示卡 / 必备清单 ---------- */
+  .wx{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+  .tile{border:1px solid var(--line);border-radius:4px;padding:12px 14px 13px;background:var(--surface);display:flex;flex-direction:column;gap:3px;min-width:0}
+  .tile .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-faint);white-space:nowrap}
+  .tile .big{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--indigo);line-height:1.2;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .tile .sub{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+  .tile p{margin:2px 0 0;font-size:13px;color:var(--ink-soft);line-height:1.55}
+  .tile p b{color:var(--ink);font-weight:500}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tip{border-left:3px solid var(--indigo);background:var(--indigo-wash);padding:11px 14px 12px;border-radius:0 4px 4px 0}
+  .tip h3{margin:0 0 4px;font-family:var(--serif);font-size:15px;font-weight:500;color:var(--indigo)}
+  .tip p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6}
+  .tip p b{color:var(--ink);font-weight:500}
+  .pack{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+  .pk{display:grid;grid-template-columns:15px 1fr;gap:10px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+  .pk::before{content:"";width:14px;height:14px;border:1.5px solid var(--indigo);border-radius:2px;margin-top:5px;box-sizing:border-box;opacity:.8}
+  .pk b{display:block;font-weight:500;color:var(--ink)}
+  .pk span{font-size:13px;color:var(--ink-soft);line-height:1.55}
+  .pk span b{display:inline;font-weight:500}
+  .pk.hot b{color:var(--busy-deep)} .pk.hot::before{border-color:var(--busy-deep)}
+  .pk.no::before{border-style:dashed;opacity:.45} .pk.no b{color:var(--ink-faint)}
+
+  /* ---------- 坑：两栏卡 ---------- */
+  .pits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pit{border:1px solid var(--line);border-radius:4px;padding:11px 14px 12px;background:var(--surface);min-width:0}
+  .pit .lbl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:4px}
+  .pit.hot{border-color:var(--busy)} .pit.hot .lbl{color:var(--busy-deep)}
+  .pit p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6}
+  .pit p b{color:var(--ink);font-weight:500}
+
+  /* ---------- 硬提醒 ---------- */
+  .facts{width:100%;border-collapse:collapse;font-size:13.5px}
+  .facts th,.facts td{text-align:left;padding:11px 12px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  .facts th{font-weight:500;color:var(--ink-faint);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;width:96px}
+  .facts td{color:var(--ink-soft)}
+  .facts td b{color:var(--ink);font-weight:500}
+  .scroller{overflow-x:auto}
+
+  footer{border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--ink-faint);display:flex;flex-direction:column;gap:5px}
+  footer a{color:var(--indigo)}
+  .dotkey{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--indigo);vertical-align:middle;margin-right:2px}
+
+  @media (max-width:560px){
+    .route{padding-top:16px}
+    .stop::before{width:8px;height:8px;top:-16px}
+    .stop b{font-size:13px}
+    .stop span{font-size:9px;letter-spacing:0}
+    .pair,.pack,.pits{grid-template-columns:1fr}
+    .day-head{grid-template-columns:auto 1fr;padding:12px 16px} .day-head .tag.stay{grid-column:1/-1;justify-self:start}
+    .dblock .date{font-size:26px}
+    .sumstrip{grid-template-columns:1fr 1fr}
+    .todo li{grid-template-columns:1fr;gap:2px}
+    .legs{--tcol:50px;--tgap:20px}
+    .facts th{width:auto;display:block;padding-bottom:2px;border:0}
+    .facts td{display:block;padding-top:0}
+    .facts tr{display:block;border-bottom:1px solid var(--line-soft);padding:10px 0}
+    .facts th,.facts td{border-bottom:0}
+  }
+
+  /* 打印：去掉阴影和底纹，卡片补回细边框 */
+  @media print{
+    body{ background-image:none; }
+    .day,.todo,.tile,.pit,.tip,footer{ box-shadow:none !important; }
+    .day{ border:1px solid var(--line); border-radius:10px; }
+    .todo{ border:1px solid var(--busy); border-top-width:3px; border-radius:10px; }
+    .tile,.pit{ border:1px solid var(--line); border-radius:8px; }
+    .tip{ border:1px solid var(--line); border-left:4px solid var(--indigo); border-radius:0 8px 8px 0; }
+    footer{ background:transparent; padding:12px 0 0; border-top:1px solid var(--line); border-radius:0; }
+    .day-body{ padding:10px 15px 11px; }
+    .day-head{ padding:8px 15px 7px; }
+    .note{ padding:7px 11px; }
+    .tile{ padding:9px 12px 10px; } .wx{ gap:7px; }
+    .pit{ padding:7px 10px 8px; } .pit p{ font-size:8.2pt; line-height:1.45; } .pit .lbl{ font-size:9.5px; margin-bottom:2px; } .pits{ gap:6px; }
+    .tip{ padding:9px 12px 10px; }
+  }
+</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>
+:root{--ink:#3b3029;--ink-soft:#6f6157;--ink-faint:#a89a8e;--ground:#faf4ea;--surface:#fffdf9;--line:#e6d8c6;--line-soft:#f0e7da;
+--indigo:#44708c;--indigo-bright:#5c90ad;--calm:#6d9a72;--busy:#e08a5a;--busy-deep:#c96a38;--calm-wash:#e9f0e4;--busy-wash:#fceade;--indigo-wash:#e5eef4;
+--head:#ffe9b8;--head-peak:#ffd2ba;--head-ink:#3b3029;
+--tape-a:rgba(255,226,160,.88);--tape-b:rgba(184,215,232,.85);--tape-c:rgba(255,200,180,.9);
+--serif:"ZCOOL XiaoWei","Noto Serif SC",serif;--sans:"Noto Sans SC",sans-serif;--mono:"IBM Plex Mono",monospace}
+body{background-color:var(--ground);background-image:radial-gradient(rgba(59,48,41,.075) 1px,transparent 1px);background-size:17px 17px}
+.wrap{gap:44px}
+header{gap:16px}
+h1{font-family:"Ma Shan Zheng",var(--serif);font-weight:400;font-size:clamp(30px,8vw,56px);color:var(--ink);letter-spacing:.03em;position:relative;width:max-content;padding-bottom:6px}
+h1::after{content:"";position:absolute;left:2px;right:2px;bottom:-2px;height:9px;background:var(--tape-a);z-index:-1;border-radius:4px;transform:rotate(-.6deg)}
+h1.thin{color:var(--ink)}
+.eyebrow{background:var(--tape-b);display:inline-block;padding:4px 12px;border-radius:3px;transform:rotate(-1.2deg);color:var(--ink-soft);width:max-content;letter-spacing:.14em}
+.route::before{background:repeating-linear-gradient(90deg,var(--ink-faint) 0 5px,transparent 5px 10px);height:2px}
+.stop b{font-family:var(--serif);font-weight:400;font-size:18px}
+.stop::before{border-color:var(--indigo);background:#fff;border-width:2.5px} .stop.peak::before{background:var(--busy);border-color:var(--busy)}
+h2{font-family:var(--serif);font-weight:400;font-size:25px;color:var(--ink)} h2::after{height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 5px,transparent 5px 11px)}
+.lede{color:var(--ink-soft)}
+.bar{border-radius:7px 7px 2px 2px;box-shadow:2px 2px 0 rgba(59,48,41,.1)} .bar.lo{background:var(--calm);opacity:.85} .bar.hi{background:var(--busy)}
+.meter-bars{border-bottom:2px dashed var(--line)}
+.todo{background:var(--surface);border:2px dashed var(--busy);border-radius:16px;position:relative;box-shadow:4px 5px 0 rgba(59,48,41,.07);padding:28px 26px 24px;margin-top:8px}
+.todo::before{content:"";position:absolute;left:50%;top:-12px;width:132px;height:24px;margin-left:-66px;background:var(--tape-a);transform:rotate(-1.6deg);border-radius:2px;box-shadow:0 1px 2px rgba(59,48,41,.1)}
+.todo h2{color:var(--busy-deep)} .todo .when{color:var(--busy-deep)} .todo li::before{border-color:var(--busy-deep);border-radius:50%;border-width:1.5px}
+.days{gap:40px}
+.day{border:2px solid var(--line);border-radius:18px;box-shadow:5px 6px 0 rgba(59,48,41,.07);position:relative;overflow:visible;background:var(--surface)}
+.day::before{content:"";position:absolute;right:30px;top:-12px;width:88px;height:24px;background:var(--tape-a);transform:rotate(2.4deg);border-radius:2px;z-index:2;box-shadow:0 1px 2px rgba(59,48,41,.1)}
+.day:nth-child(even)::before{background:var(--tape-b);right:auto;left:30px;transform:rotate(-2.4deg)}
+.day.peak::before{background:var(--tape-c)}
+.day-head{border-radius:15px 15px 0 0;padding:19px 24px 14px;border-bottom:2px dashed rgba(59,48,41,.16)}
+.dblock{border-right:2px dashed rgba(59,48,41,.22);padding-right:20px}
+.dblock .date{font-family:"Ma Shan Zheng",var(--serif);font-weight:400;font-size:40px;color:var(--ink);line-height:1.05}
+.dblock .sub{color:var(--ink-soft);opacity:1;margin-top:4px}
+.day .day-head h3.title{color:var(--ink);font-family:var(--serif);font-weight:400;font-size:24px}
+.day-head .tag{background:#fff;border:1.5px solid var(--ink-faint);color:var(--ink-soft);border-radius:999px;box-shadow:1px 1px 0 rgba(59,48,41,.12)}
+.day.peak .day-head .tag{color:var(--busy-deep);border-color:var(--busy-deep)}
+.day-head .tag.stay,.day.peak .day-head .tag.stay{background:var(--indigo);color:#fff;border-color:var(--indigo);border-radius:999px;box-shadow:1px 1px 0 rgba(59,48,41,.18)}
+.day.peak .day-head .tag.stay{background:var(--busy-deep);border-color:var(--busy-deep)}
+.day-body{padding:18px 24px 24px}
+.leg .t{color:var(--indigo);font-weight:400} .leg .t.ride{font-weight:500} .leg .t::after{border-color:var(--indigo);background:var(--surface)} .leg .t.ride::after{background:var(--indigo)}
+.legs::before{background:repeating-linear-gradient(180deg,var(--line) 0 5px,transparent 5px 9px)}
+.note{border-left:3px solid var(--busy);background:var(--busy-wash);padding:9px 13px;border-radius:0 10px 10px 0}
+.tile,.pit{border:2px solid var(--line);border-radius:14px;box-shadow:3px 4px 0 rgba(59,48,41,.06);background:var(--surface)} .tile .big{color:var(--indigo);font-family:var(--serif);font-weight:400;font-size:24px}
+.pit.hot{border-color:var(--busy)} .pit.hot .lbl{color:var(--busy-deep)}
+.tip{background:var(--indigo-wash);border-left:none;border-radius:14px;border:2px dashed var(--indigo)} .tip h3{color:var(--indigo);font-family:var(--serif);font-weight:400;font-size:19px}
+.paid,.due,.tbd{border-radius:999px}
+.pk::before{border-radius:50%;border-color:var(--indigo);border-width:1.5px}
+.cost tr.grp td{font-family:var(--serif);font-weight:400;font-size:18px} .cost tr.tot td{color:var(--busy-deep)}
+footer{border-top:2px dashed var(--line)}
+@media print{ .day{overflow:hidden;box-shadow:none} .day::before,.todo::before{display:none} .tile,.pit,.todo{box-shadow:none} .days{gap:24px} .wrap{gap:20px} h1::after{height:7px} }
+
+  /* 覆盖新基线的圆润化：手账版自己管形状 */
+  :root{ --head-grad:var(--head); --head-peak-grad:var(--head-peak);
+         --shadow-lg:none; --shadow-md:none; }
+  body{ background-image:radial-gradient(rgba(59,48,41,.075) 1px,transparent 1px) !important; background-size:17px 17px; }
+  header{ background:transparent; box-shadow:none; border-radius:0; padding:0; overflow:visible; }
+  header::before{ display:none; }
+  .day{ box-shadow:5px 6px 0 rgba(59,48,41,.07); overflow:visible; }
+  .day-head{ background:var(--head); border-bottom:2px dashed rgba(59,48,41,.16); }
+  .day.peak .day-head{ background:var(--head-peak); }
+  .day-head .tag{ background:#fff; }
+  .day-head .tag.stay{ background:var(--indigo); }
+  .day.peak .day-head .tag.stay{ background:var(--busy-deep); }
+  .todo{ box-shadow:4px 5px 0 rgba(59,48,41,.07); border:2px dashed var(--busy); border-top:2px dashed var(--busy); }
+  .tile,.pit{ box-shadow:3px 4px 0 rgba(59,48,41,.06); border:2px solid var(--line); }
+  .pit.hot{ box-shadow:3px 4px 0 rgba(59,48,41,.06); border-color:var(--busy); }
+  .tip{ box-shadow:none; border:2px dashed var(--indigo); border-left:2px dashed var(--indigo); border-radius:14px; }
+  footer{ background:transparent; box-shadow:none; border-radius:0; padding:14px 0 0; border-top:2px dashed var(--line); }
+  .bar.lo{ background:var(--calm); opacity:.85 } .bar.hi{ background:var(--busy) }
+  .route::before{ background:repeating-linear-gradient(90deg,var(--ink-faint) 0 5px,transparent 5px 10px); opacity:1; height:2px; border-radius:0 }
+  @media print{
+    .day{ border:2px solid var(--line); border-radius:18px; box-shadow:none; overflow:hidden; }
+    .day::before,.todo::before{ display:none; }
+    .todo{ border:2px dashed var(--busy); border-radius:16px; }
+    .tile,.pit{ border:2px solid var(--line); border-radius:14px; }
+    .tip{ border:2px dashed var(--indigo); border-radius:14px; }
+    header{ padding:0 0 6px; }
+    footer{ border-top:2px dashed var(--line); }
+  }
+
+  /* 打印：跟上基线的紧凑间距，保证分页与基础版一致 */
+  @media print{
+    .wrap{ gap:18px; }
+    .days{ gap:16px; }
+    h1{ font-size:26pt; } h1::after{ height:7px; }
+    h2{ font-size:14pt; }
+    .meter-bars{ height:56px; }
+    .todo{ padding:14px 16px 13px; gap:8px; } .todo ul{ gap:6px; }
+    .todo li p{ font-size:10pt; } .todo li p em{ font-size:9pt; line-height:1.5; }
+    .day-head{ padding:8px 15px 7px; }
+    .dblock{ padding-right:12px; } .dblock .date{ font-size:19pt; }
+    .day .day-head h3.title{ font-size:13pt; }
+    .day-body{ padding:10px 15px 11px; } .legs{ gap:3px; }
+    .leg .d{ font-size:9.5pt; line-height:1.5; }
+    .note{ font-size:9pt; line-height:1.5; padding:6px 10px; }
+    .tile{ padding:9px 12px 10px; }
+    .pit{ padding:7px 10px 8px; } .pit p{ font-size:8.2pt; line-height:1.45; } .pit .lbl{ font-size:9.5px; margin-bottom:2px; } .pits{ gap:6px; }
+    .tile .big{ font-size:15pt; } .tile p{ font-size:9pt; }
+    .tip{ padding:9px 12px 10px; } .tip h3{ font-size:11.5pt; } .tip p{ font-size:9pt; }
+    .pk{ padding:6px 0; } .pk b{ font-size:10pt; } .pk span{ font-size:9pt; }
+    .cost tr.grp td{ font-size:12pt; }
+    footer{ padding:12px 0 0; }
+  }
+
+  /* 窄屏（手机）收紧 */
+  @media (max-width:560px){
+    .stop b{ font-size:14px; }
+    .stop span{ font-size:9px; letter-spacing:0; }
+    .route::before{ height:2px; }
+    h1::after{ height:7px; bottom:0; }
+    .todo{ padding:22px 16px 18px; } .todo::before{ width:96px; margin-left:-48px; }
+    .day-body{ padding:16px 15px 18px; } .day-head{ padding:15px 15px 11px; }
+    .dblock{ padding-right:12px; }
+    .tile,.pit,.tip{ padding:13px 14px 14px; }
+  }
+</style></head><body>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">9.27 — 10.4 · 八天七晚 · 高铁为主</div>
+  <h1 class="thin">2026 牛马逃离计划</h1>
+  <div class="route" aria-label="线路">
+    <div class="stop"><b>贵阳</b><span>9.27–29</span></div>
+    <div class="stop"><b>黄果树</b><span>9.28</span></div>
+    <div class="stop"><b>乐山</b><span>9.29</span></div>
+    <div class="stop"><b>成都</b><span>9.29–10.4</span></div>
+    <div class="stop"><b>都江堰</b><span>9.30</span></div>
+    <div class="stop peak"><b>青城山</b><span>10.2</span></div>
+  </div>
+</header>
+
+<!-- 人流 -->
+<section class="meter">
+  <p class="lede">国庆 10.1–10.7，<strong>高速免费 10.1 零点开闸</strong>；9.28–9.30 节前工作日，限流和抢票都塞这三天；<strong>9.27 中秋假期末日</strong>，贵阳北下午返程高峰。</p>
+  <div class="meter-bars" role="img" aria-label="人流强度">
+    <div class="bar hi" style="height:58%"></div>
+    <div class="bar lo" style="height:26%"></div>
+    <div class="bar lo" style="height:24%"></div>
+    <div class="bar lo" style="height:32%"></div>
+    <div class="bar hi" style="height:100%"><span class="flag">高速免费<br>10.1 00:00</span></div>
+    <div class="bar hi" style="height:94%"></div>
+    <div class="bar hi" style="height:90%"></div>
+    <div class="bar hi" style="height:80%"></div>
+  </div>
+  <div class="meter-x">
+    <div><b>9.27</b>周日</div><div><b>9.28</b>周一</div><div><b>9.29</b>周二</div><div><b>9.30</b>周三</div>
+    <div><b>10.1</b>周四</div><div><b>10.2</b>周五</div><div><b>10.3</b>周六</div><div><b>10.4</b>周日</div>
+  </div>
+  <div class="meter-key"><span><i style="background:var(--calm)"></i>节前工作日，人少</span><span><i style="background:var(--busy)"></i>假期，人挤</span></div>
+</section>
+
+<!-- 待办 -->
+<section class="todo">
+  <h2>抢票与预约日历</h2>
+  <p class="lede" style="color:inherit;opacity:.8"><strong>已落袋：</strong>G2946 · G2138 + G203 · G5383 · C6034 · C5980 · G918 · 黄果树套票（9.28 12:30 入园）＋水帘洞（14:30–16:30）· 贵阳亚朵 X · 成都全季 · 10.4 两张机票（ZH9402／CA4391，T2，已选座）。</p>
+  <ul>
+    <li>
+      <span class="when">已候补</span>
+      <p><strong>9.28 回程票：C6034 21:18 已买，G2842 20:23 在候补。</strong><em>候补兑现了就退 C6034（开车前 8 天以上退票免费，9.20 前兑现零损失；之后 5%）；没兑现就按 21:18 走，多在安顺吃 50 分钟。</em></p>
+    </li>
+    <li>
+      <span class="when">9.16 零点</span>
+      <p><strong>都江堰门票（9.30 用），成人 80 × 2。</strong><em>「青都票务」（ticket.djy517.com），<b>预售 15 天含当日，9.16 零点开 9.30 的票</b>。<b>时段选 12:00–14:00</b>。入园 8–18 点、20 点前须出园。</em></p>
+    </li>
+    <li>
+      <span class="when">9.18</span>
+      <p><strong>武侯祠（10.1 用）成人 50 × 2。</strong><em>博物馆官网／公众号，<b>预售 14 天含当日</b>（9.14 只能约到 9.27 → 10.1 的在 9.18 开）。<b>时段选 11:00–13:00</b>。</em></p>
+    </li>
+    <li>
+      <span class="when">9.18 零点 ⚠</span>
+      <p><strong>青城山前山（10.2 用），成人 80 × 2。</strong><em>同一个「青都票务」，9.18 零点开 10.2 的票。<b>国庆高峰、放票就买</b>，<b>时段选 10:00–12:00</b>。</em></p>
+    </li>
+    <li>
+      <span class="when">9.18</span>
+      <p><strong>10.2 犀浦 ⇄ 青城山 快铁票。</strong><em>12306 预售 15 天。<b>黄金周别指望现场扫码</b>，提前买好往返。</em></p>
+    </li>
+    <li>
+      <span class="when">9.29 当日 ⚠</span>
+      <p><strong>乐山游船票，70 元，「大佛旅游」小程序，仅当日可定。</strong><em>页面标注<b>售票时间 07:30–18:00</b>，<b>0 点先试一次，没开就 07:30 再买</b>（正好在去贵阳北路上）。买了船票就不用 80 元登山票。</em></p>
+    </li>
+  </ul>
+  <p class="lede" style="color:inherit;opacity:.72;font-size:13px">火车票预售 15 天含当日，<b>各站起售时间不同</b>，12306 App「我的 → 出行向导 → 起售时间」可查。</p>
+</section>
+
+<!-- 每日 -->
+<section class="days">
+
+  <div class="day peak">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">9.27</span><span class="sub">周日 · D1</span></div>
+        <div class="dmid"><h3 class="title">贵阳北会合</h3><div class="tags"><span class="tag">中秋假期末日</span></div></div>
+        <span class="tag stay">住 贵阳</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t ride">10:46</span><p class="d">你：<strong>9.27 G2946</strong> 广州南 10:46 开 → <strong>贵阳北 14:40 到</strong>，3h54，<strong>中途只停贺州</strong>。贵广高铁七成路段穿喀斯特，<strong>桂林之后窗外是连片峰林</strong>，别一路睡；车上可在 12306 订盒饭。</p></li>
+        <li class="leg"><span class="t">📍 点亮</span><p class="d"><strong>一路三省，高德开着定位能连亮一串</strong>：广东<strong>广州·佛山·肇庆</strong>（七星岩）→ 广西<strong>贺州</strong>（黄姚古镇）<strong>·桂林</strong>（漓江峰林，车过时窗外就是）<strong>·柳州</strong>（三江侗族风雨桥）→ 贵州<strong>黔东南</strong>（从江、榕江侗寨）<strong>·黔南</strong>（都匀毛尖）<strong>·贵阳</strong>。</p></li>
+        <li class="leg"><span class="t ride">11:01</span><p class="d">朋友：<strong>9.27 G2138</strong> 衡阳东 11:01 开 → 怀化南 13:13，换 <strong>G203</strong> 13:45 开 → <strong>贵阳北 15:14 到</strong>。缓冲 32 分钟，<strong>真赶丢也不怕</strong>——怀化南→贵阳北全天 71 趟，下一班 G307 13:56。点亮：湖南<strong>衡阳·邵阳·娄底·怀化</strong> → 贵州<strong>铜仁·黔东南·贵阳</strong>（玉屏、三穗、凯里）。</p></li>
+        <li class="leg"><span class="t">15:30</span><p class="d">入住<strong>亚朵 X</strong>（云岩区浣纱路 19 号）。<strong>中秋返程高峰别打车</strong>——贵阳北 1 号线 → 北京路换 3 号线到延安西路，约 35 分钟。</p></li>
+        <li class="leg"><span class="t">夜</span><p class="d"><strong>甲秀楼</strong>（公交 307／61 几站，<strong>免费</strong>）。<strong>日落后半小时最出片</strong>，9 月底约 <strong>18:50–19:20</strong>，亮灯倒映南明河；旁边<strong>翠微园</strong>顺路逛，也免费。</p></li>
+        <li class="leg"><span class="t">20:00</span><p class="d"><strong>二七路小吃街</strong>，车程 12 分钟。<strong>17:30 出摊、18–20 点最旺、22:30 收摊</strong>。丝娃娃（杨姨妈、雷家）、烤脑花、豆米火锅、烤米皮，人均 30–50，都能扫码。</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">9.28</span><span class="sub">周一 · D2</span></div>
+        <div class="dmid"><h3 class="title">黄果树</h3><div class="tags"></div></div>
+        <span class="tag stay">住 贵阳</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t">08:30</span><p class="d">早餐肠旺面、牛肉粉、豆腐圆子。<strong>出门前收好行李</strong>（今晚晚归、明早 07:05 退房）。<strong>09:15 出发</strong>：延安西路 → 北京路换 3 号线 → 1 号线贵阳北，30–40 分钟。</p></li>
+        <li class="leg"><span class="t ride">10:15</span><p class="d"><strong>9.28 G5383</strong> 贵阳北 10:15 开 → <strong>安顺西 10:45 到</strong>，52 元。已购。</p></li>
+        <li class="leg"><span class="t">10:50</span><p class="d">出站<strong>右前方客运站售票厅</strong>买直通车，<strong>22 元、35–40 分钟</strong>到票务中心，坐满即走。</p></li>
+        <li class="leg"><span class="t">11:40</span><p class="d"><strong>门口吃午饭</strong>（人均 35）。票是 <strong>12:30–14:30 入园</strong>档，<strong>不能提前进、错过不补</strong>。</p></li>
+        <li class="leg"><span class="t">12:30</span><p class="d">检票进园上观光车。<strong>大巴是单向环线</strong>，顺着车走「陡坡塘 → 天星桥 → 大瀑布」正好一圈回票务中心；<strong>想先去大瀑布就得多绕一整圈</strong>，光车程就多花 40 分钟，不值。</p></li>
+        <li class="leg"><span class="t">12:50</span><p class="d"><strong>陡坡塘</strong>，<strong>只给 20 分钟</strong>。离票务中心最近，《西游记》片头那个瀑布，拍完就上车。</p></li>
+        <li class="leg"><span class="t">13:30</span><p class="d"><strong>天星桥只走下半程</strong>（1.5 小时）：天星洞 → 水上石林 → <strong>银链坠潭</strong>。上半段「数生步」平淡费腿，<b>别走全程</b>（要 3–4 小时）。<b>下半程 17:40 关</b>。</p></li>
+        <li class="leg"><span class="t">15:20</span><p class="d"><strong>大瀑布，2 小时，不爬坡。</strong>进景区门<strong>右手边就是下行扶梯</strong>（往返含票里，5 分半，不坐就走 25 分钟台阶下谷底）。下去后<strong>先直奔水帘洞</strong>——<b>它 16:30 截止，观景台不截止</b>；出洞回<strong>犀牛潭观景台</strong>看正面，再过<strong>瀑布正对面那座铁索桥</strong>，桥那头就是上行扶梯下站，坐上去出园。</p></li>
+        <li class="leg"><span class="t">17:20</span><p class="d">出园，免费摆渡车回票务中心，换直通车。<strong>末班 18:00</strong>，<b>这是全天最紧的一道</b>；真误了 18:00–19:00 可联系加班车。</p></li>
+        <li class="leg"><span class="t">18:30</span><p class="d">到安顺西，<strong>打车进市区吃晚饭</strong>（二三十块）。<strong>裹卷在顾府街小吃街，夺夺粉在南马广场</strong>。回程 21:18，不用赶。</p></li>
+        <li class="leg"><span class="t ride">21:18</span><p class="d"><strong>C6034 安顺西 21:18 → 贵阳北 21:51</strong>（已买），20:55 前到站，约 22:35 回酒店。<strong>G2842 20:23 候补中</strong>，兑现就改坐它。兜底 G5396 21:42、C5996 21:51。</p></li>
+        <li class="leg"><span class="t">00:00</span><p class="d"><strong>试买明天的乐山船票</strong>（「大佛旅游」小程序，仅当日可定）。<strong>没开就睡，07:30 售票时间再买。</strong></p></li>
+      </ul>
+      <p class="note"><b>水帘洞已改签 14:30–16:30</b>（两人，免费）：瀑布背后 134 米洞道，闸机刷身份证。<b>16:30 是硬截止</b>，按上面节奏 15:40 前后能进，缓冲约 50 分钟——<b>前面陡坡塘和天星桥别恋战</b>。<b>会被浇透，雨衣洞口 5–10 元买，手机套防水袋。</b></p>
+      <p class="note"><b>园内硬时间</b>：景点 <b>17:00 停止入园</b>、<b>水帘洞 16:30 前必须进</b>、<b>天星桥下半程 17:40 关</b>、大瀑布和陡坡塘 18:30 关门。<b>拖了就砍陡坡塘</b>（最短也最不重要），保住天星桥下半程和大瀑布。</p>
+      <p class="note"><b>⚠ K834 18:45 别当兜底</b>——它在安顺站（老站）发、到贵阳站，不是安顺西／贵阳北。</p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">9.29</span><span class="sub">周二 · D3</span></div>
+        <div class="dmid"><h3 class="title">乐山坐船，晚上落成都</h3><div class="tags"></div></div>
+        <span class="tag stay">住 成都</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t">07:05</span><p class="d">退房，<strong>打车去贵阳北</strong>（约 30 分钟，比换乘稳）。</p></li>
+        <li class="leg"><span class="t ride">08:42</span><p class="d"><strong>9.29 C5980</strong> 贵阳北 08:42 开 → <strong>乐山 11:10 到</strong>，2h28，243 元。已购，<strong>中途只停黔西</strong>。</p></li>
+        <li class="leg"><span class="t">📍 点亮</span><p class="d">成贵高铁号称<strong>「中国第一条旅游高铁」</strong>，一趟串三省：贵州<strong>贵阳·毕节</strong>（织金洞、百里杜鹃、威宁草海都在这一段）→ 云南<strong>昭通</strong>（威信、镇雄）→ 四川<strong>宜宾</strong>（蜀南竹海、五粮液）<strong>·乐山</strong>（过犍为，嘉阳蒸汽小火车在那）。<strong>全程在乌蒙山里钻，云贵川交界那段桥特别高。</strong></p></li>
+        <li class="leg"><span class="t">11:20</span><p class="d"><strong>存包在乐山站</strong>（出站口 480 米，09:00–23:00，约 10 元）。</p></li>
+        <li class="leg"><span class="t">11:35</span><p class="d">打车进城约 20 分钟（<strong>乐山站在城外</strong>），直奔<strong>张公桥好吃街</strong>。</p></li>
+        <li class="leg"><span class="t">11:50</span><p class="d"><strong>午饭，留一个半小时。</strong>跷脚牛肉点一锅原汤（<strong>冯四嬢、谢老五</strong>都在这条街），钵钵鸡认<strong>五通黄娘</strong>，再配甜皮鸭、豆腐脑。麻辣烫有熊家婆、谭三妹。</p></li>
+        <li class="leg"><span class="t">13:20</span><p class="d">起身打车去码头。<strong>⚠ 上船点看水位定</strong>：丰水期在<strong>嘉州渡</strong>、枯水期在<strong>乌尤寺</strong>，<b>按订单上写的走，别默认乌尤寺</b>。<strong>13:50 到</strong>，凭身份证换实体票候船。</p></li>
+        <li class="leg"><span class="t ride">14:00</span><p class="d">上船，<strong>30–40 分钟</strong>，大佛正前方停留拍照。<strong>坐满即发</strong>，别掐点。</p></li>
+        <li class="leg"><span class="t">15:00</span><p class="d">下船，剩两小时。<strong>回张公桥二刷</strong>（叶儿粑、蛋烘糕、油炸串串当下午茶），或打车 20 分钟去<strong>苏稽古镇</strong>（跷脚牛肉发源地）。</p></li>
+        <li class="leg"><span class="t">16:50</span><p class="d">打车回乐山站取包（城外，留 20–30 分钟）。</p></li>
+        <li class="leg"><span class="t ride">17:35</span><p class="d"><strong>9.29 G918</strong> 乐山 17:35 开 → <strong>成都东 18:21 到</strong>，54 元。已购。当天 64 趟，改签随意：C5786 17:45、C6312 19:00，末班 22:12。</p></li>
+        <li class="leg"><span class="t">19:00</span><p class="d">入住<strong>全季酒店（成都金牛万达店）</strong>，金牛区北站西二路 17 号，<strong>9.29–10.4 共 5 晚</strong>。<strong>成都东坐 7 号线直达火车北站</strong>。</p></li>
+      </ul>
+      <p class="note"><b>⚠ 乌尤寺、麻浩崖墓、九曲栈道都在 80 元登山票里</b>，只买船票进不去。下船就别上山了，直接回城吃。</p>
+      <p class="note"><b>船票仅当日可定</b>，没抢到或停航（<b>船受水位天气影响会调班</b>，可打 <b>0833-2355557</b> 确认），现场改 80 元登山票，9.29 节前当天买得到。</p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">9.30</span><span class="sub">周三 · D4</span></div>
+        <div class="dmid"><h3 class="title">都江堰，6 号门进</h3><div class="tags"><span class="tag">节前最后一天</span></div></div>
+        <span class="tag stay">住 成都</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t">09:00</span><p class="d">睁眼吃早餐（全季无早餐，火车北站附近解决）。<strong>今天只有都江堰一件事，预约的是 12:00–14:00 入园，不用赶。</strong></p></li>
+        <li class="leg"><span class="t">09:40</span><p class="d">出门。<strong>7 号线 → 一品天下换 2 号线 → 犀浦</strong>，约 50 分钟。<strong>7 号线认准一品天下方向。</strong></p></li>
+        <li class="leg"><span class="t ride">10:56</span><p class="d"><strong>9.30 S5109</strong> 犀浦 10:56 开（<strong>同站台不出站</strong>换成灌快铁）→ <strong>离堆公园站 11:25 到</strong>，10 元。晚一班 11:43 C6347 → 12:06 也行。<strong>坐到离堆公园，别在都江堰站下</strong>——那站隔 4.27 公里。</p></li>
+        <li class="leg"><span class="t">11:30</span><p class="d">出站就是<strong>灌县古城</strong>，<strong>先在南桥一带吃午饭</strong>。<strong>马嬢嬢饭店</strong>无菜单现点现炒、人均 40；想吃重口就<strong>尤兔头</strong>（卤兔头）或<strong>川江渔府</strong>鱼火锅（配手工豆浆馍馍）。杨柳河街一线小吃多。</p></li>
+        <li class="leg"><span class="t">12:30</span><p class="d">吃完打车上 6 号门，<strong>跟司机说「秦堰楼」</strong>，约 10 元、10 分钟（2.5 公里盘山路，走不上去）。</p></li>
+        <li class="leg"><span class="t">12:45</span><p class="d">进园（12:00–14:00 时段内）。<strong>6 号门是省力走法</strong>——秦堰楼在景区最高点，从上往下走，比从离堆公园正门进<strong>少爬 40 分钟坡</strong>。<strong>全程下坡约 3 小时</strong>：秦堰楼 → 二王庙 → 安澜索桥 → <strong>鱼嘴 → 飞沙堰 → 宝瓶口</strong> → 伏龙观 → 堰功道 → 清溪园，<strong>1 号门出</strong>。入园 8–18 点，<strong>20 点前须出园</strong>。</p></li>
+        <li class="leg"><span class="t">15:45</span><p class="d">出 1 号门又回到古城，找个茶馆坐到不想坐为止。</p></li>
+        <li class="leg"><span class="t">17:00</span><p class="d">古城<strong>步行 5 分钟就是离堆公园站</strong>，坐回犀浦。末班 21:56，随便挑。</p></li>
+      </ul>
+      <p class="note"><b>6 号门单循环：只验票进、出口关闭</b>，进去没法原路折返，东西别落在门口。</p>
+    </div>
+  </div>
+
+  <div class="day peak">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">10.1</span><span class="sub">周四 · D5</span></div>
+        <div class="dmid"><h3 class="title">武侯祠 11–13 → 锦里 → 文殊院</h3><div class="tags"><span class="tag">最挤</span></div></div>
+        <span class="tag stay">住 成都</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t">09:00</span><p class="d">睡到自然醒，早饭。</p></li>
+        <li class="leg"><span class="t">10:15</span><p class="d">出发：<strong>1 号线 → 省体育馆换 3 号线 → 高升桥</strong>（或 7 号线 → 驷马桥换 3 号线），约 40 分钟。</p></li>
+        <li class="leg"><span class="t">11:00</span><p class="d"><strong>武侯祠</strong> 50 元，预约 <strong>11:00–13:00</strong> 时段，文物区 08:30–18:00。<strong>顺路线走不回头</strong>：大门 → 文臣武将廊 → 刘备殿 → 诸葛亮殿 → 三义庙 → 惠陵 → <strong>红墙竹影</strong>（全院最出片，走到底就是锦里门口）。<strong>两小时足够。</strong></p></li>
+        <li class="leg"><span class="t">13:00</span><p class="d">出来隔壁就是<strong>锦里</strong>，国庆白天人贴人，<strong>穿一遍不久留</strong>。午饭<strong>往外走两条街</strong>，别在锦里里面吃。<strong>纪念品别在门口买</strong>，往里走同款便宜一截。</p></li>
+        <li class="leg"><span class="t">15:00</span><p class="d">回程顺路<strong>文殊院</strong>（免费，1 号线文殊院站，离酒店两站）。<strong>进门处免费领一炷香，不用自己买</strong>。院里茶园清静，坐一下午；旁边<strong>文殊坊</strong>有小吃。</p></li>
+        <li class="leg"><span class="t">晚</span><p class="d">火锅，<strong>下午就在大众点评上取号</strong>，黄金周排队两小时起，<strong>避开 18–20 点这一档</strong>、晚一点去反而快。想看<strong>锦里亮灯</strong>（约 19:00）就晚饭后再过去一趟，不想折腾就算了。</p></li>
+      </ul>
+      <p class="note"><b>11–13 正好是国庆首日的高峰时段</b>，武侯祠里会挤，但它不大、动线单一，两小时够。文殊院放下午是为了<b>避峰</b>——那边国庆也不算挤，还顺路回酒店。</p>
+    </div>
+  </div>
+
+  <div class="day peak">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">10.2</span><span class="sub">周五 · D6</span></div>
+        <div class="dmid"><h3 class="title">青城山前山，整天</h3><div class="tags"><span class="tag">国庆 · 出城</span></div></div>
+        <span class="tag stay">住 成都</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t ride">09:00</span><p class="d">出门。<strong>7 号线 → 一品天下换 2 号线 → 犀浦</strong>，同站台换成灌快铁 → <strong>青城山站</strong>（10 元，<strong>票 9.18 起在 12306 买：S5011 10:01 → 10:34 或 S5087 10:10 → 10:44</strong>）。<strong>7 号线认准一品天下方向。</strong></p></li>
+        <li class="leg"><span class="t">10:45</span><p class="d">青城山站出来<strong>离前山山门约 6 公里</strong>：坐<strong>景区观光车 10–18 元，约 10 分钟</strong>；或 101 路公交。<strong>11:00 前后到山门</strong>，在 10–12 时段内。</p></li>
+        <li class="leg"><span class="t">11:00</span><p class="d">前山 80 元。山门 → 雨亭 → <strong>月城湖</strong>（步行 15–20 分钟）→ <strong>渡船 5 元过湖</strong>（或走环湖栈道 10 分钟），<strong>对岸就是步云廊索道下站</strong>，船票索道票都在那儿买 → <strong>索道</strong>（980 米，单程 35／往返 60，<strong>8:30–17:30</strong>）到四望观 → 上清宫（走 20–30 分钟）→ <strong>老君阁</strong>登顶（30–40 分钟）。<strong>上清宫斋堂有青城素面、豆腐宴、竹筒饭</strong>，山上就在那儿吃。<strong>索道排队算 30–60 分钟</strong>，山上或者上清宫附近吃午饭。</p></li>
+        <li class="leg"><span class="t">14:30</span><p class="d">原路索道下，约 15:30 出山门。<strong>体力还行</strong>可以改走下山那段<strong>朝阳洞、天师洞、天然图画</strong>，前山风景最好的一段，多花一个半小时，17:00 前出山。</p></li>
+        <li class="leg"><span class="t">⚠ 17:00</span><p class="d">青城山 <strong>17:00 停售当日票、17:30 关门</strong>。观光车回快铁站，S5054 18:06 → 犀浦 18:36（10 元，班次到 22:44），原路回火车北站，约 19:15 到。</p></li>
+      </ul>
+      <p class="note"><b>选了 10–12 时段，索道排队是这天的代价</b>，黄金周中午那阵最挤，按 30–60 分钟预留。好在整天都是它的，塞得下。<b>11:00 进园别拖过 12:00</b>，票是按时段验的。</p>
+    </div>
+  </div>
+
+  <div class="day peak">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">10.3</span><span class="sub">周六 · D7</span></div>
+        <div class="dmid"><h3 class="title">放空日 · 杜甫草堂 ＋ 逛街</h3><div class="tags"><span class="tag">国庆 · 放空</span></div></div>
+        <span class="tag stay">住 成都</span>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t">睡到自然醒</span><p class="d"><strong>今天没有闹钟、没有赶车。</strong></p></li>
+        <li class="leg"><span class="t">上午</span><p class="d"><strong>杜甫草堂</strong> 50 元，青华路 37 号，<strong>9:00–18:00、17:00 停售</strong>。<strong>1 号线 → 骡马市换 4 号线 → 草堂北路</strong>。<strong>现场凭身份证能买</strong>，不用预约。<strong>路线</strong>：大廨 → 诗史堂 → 工部祠 → <strong>茅屋故居</strong> → 花径 → <strong>大雅堂</strong> → 南门出，<strong>1.5–2 小时</strong>，南门外就是浣花溪公园。</p></li>
+        <li class="leg"><span class="t">中午</span><p class="d">草堂附近吃。青羊宫（票价很低）、浣花溪公园（免费）都在旁边，想加就加。</p></li>
+        <li class="leg"><span class="t">下午</span><p class="d"><strong>人民公园・鹤鸣茶社</strong>，公园免门票，盖碗茶几十块，<strong>掏耳朵</strong>。<strong>早点去占湖边的位子</strong>，去晚了只剩树荫里的散座。出门几步是<strong>宽窄巷子</strong>（免费，人多就只穿一遍）。</p></li>
+        <li class="leg"><span class="t">傍晚</span><p class="d"><strong>太古里 ＋ 大慈寺</strong>或<strong>春熙路</strong>逛街，手信在这儿买齐。<strong>火锅底料</strong>认名扬、好人家，去<strong>伊藤洋华堂负一楼或红旗连锁</strong>，明码标价；兔头认鑫记婆婆兔；熊猫文创去 <strong>IFS 对面时代广场</strong>楼里，比路边便宜一截。<b>⚠ 别买「特产大礼包」礼盒，别跟路边拉客的进「特产折扣店」</b>，比超市贵五成起。</p></li>
+        <li class="leg"><span class="t">晚</span><p class="d">最后一顿火锅，<strong>下午取号</strong>。饭后<strong>九眼桥／合江亭</strong>看锦江夜景（免费）。回酒店<strong>收拾行李</strong>，明早 08:15 走。</p></li>
+      </ul>
+      <p class="note"><b>全天只有杜甫草堂一张票</b>，其余全免费，只花茶钱饭钱。</p>
+    </div>
+  </div>
+
+  <div class="day peak">
+    <div class="stripe"></div>
+          <div class="day-head">
+        <div class="dblock"><span class="date">10.4</span><span class="sub">周日 · D8</span></div>
+        <div class="dmid"><h3 class="title">双流 T2，两班只差 5 分钟</h3><div class="tags"><span class="tag">返程</span></div></div>
+      </div>
+    <div class="day-body">
+      <ul class="legs">
+        <li class="leg"><span class="t">08:15</span><p class="d"><strong>退房去双流 T2。</strong>地铁 <strong>7 号线 → 太平园换 10 号线</strong>，约 50 分钟；打车 30–40 分钟。两人同行打车不亏。</p></li>
+        <li class="leg"><span class="t">✈ 机上</span><p class="d">两班都是<strong>正午向东南飞，太阳在右舷</strong>，值机<strong>选 A 座（左窗）</strong>不晒。爬升时回头能看成都平原和龙泉山脉。两小时航程，正好把八天的照片挑一遍、把没写的账记完。</p></li>
+        <li class="leg"><span class="t">09:20</span><p class="d">到 <strong>双流 T2</strong>。黄金周安检队伍长，<strong>起飞前 2.5 小时到</strong>。值机托运完还剩一个多小时，T2 里有面馆和咖啡；<strong>手信别留到机场补</strong>，同款贵不少。</p></li>
+        <li class="leg"><span class="t ride">11:50</span><p class="d">你：<strong>10.4 ZH9402</strong> 双流 T2 11:50 起飞 → <strong>深圳宝安 T3 14:15 到</strong>，2 小时 25 分。已选座 11F。</p></li>
+        <li class="leg"><span class="t ride">11:55</span><p class="d">朋友：<strong>10.4 CA4391</strong> 双流 T2 11:55 起飞 → <strong>长沙 14:05 到</strong>，2 小时 10 分。已选座。</p></li>
+      </ul>
+      <p class="note"><b>两班都已选座，起飞前一天再确认值机和航站楼</b>（深航自动值机是前一天才发；国航两场运营，以登机牌为准）。酒店 12:00 前离店，<b>前一晚收好行李</b>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 天气行装 -->
+<section class="pb">
+  <h2>天气 · 穿衣 · 带什么</h2>
+  <p class="lede">常年平均值，<strong>出发前一周再看实际预报</strong>。你们跨了九月和十月，成都这两个月是两种天气。</p>
+  <div class="wx">
+    <div class="tile"><span class="lbl">贵阳 · 9.27–9.29</span><b class="big">17–25 ℃</b><span class="sub">海拔约 1100 m</span><p><b>早晚凉、昼夜温差大</b>。</p></div>
+    <div class="tile"><span class="lbl">乐山 · 9.29</span><b class="big">≈ 成都，略暖</b><span class="sub">江面有风</span><p><b>船上风大</b>，备件外套。</p></div>
+    <div class="tile"><span class="lbl">成都 · 9 月</span><b class="big">19–25 ℃</b><span class="sub">月降水 115 mm</span><p>华西秋雨尾巴，<b>9.29–9.30 遇雨概率不低</b>。</p></div>
+    <div class="tile"><span class="lbl">成都 · 10 月</span><b class="big">15–21 ℃</b><span class="sub">月降水 40 mm · 全年最干</span><p><b>10.1 起转凉转干</b>，早晚 15 ℃。</p></div>
+    <div class="tile"><span class="lbl">都江堰 · 青城山</span><b class="big">比成都低 2–4 ℃</b><span class="sub">山顶风大</span><p>索道上去后<b>加一件</b>。</p></div>
+  </div>
+  <p class="note"><b>按「能叠穿」准备：</b>短袖／薄长袖 ＋ 薄外套 ＋ 防水冲锋衣。前四天偏暖偏湿，后四天转凉转干。</p>
+
+  <div class="pair">
+    <div class="tip"><h3>鞋是这趟最该上心的东西</h3><p>黄果树湿石头路、都江堰下坡 3 小时、青城山台阶——<b>防滑、穿熟的鞋，别穿新鞋。多带两双袜子。</b></p></div>
+    <div class="tip"><h3>吃：两种辣，一条坎</h3><p>贵州酸辣、四川麻辣，连吃八天<b>肠胃药必带</b>。<b>折耳根是道坎</b>，裹卷、丝娃娃、蘸水都放，点单时说「不要折耳根」。不辣的退路：乐山跷脚牛肉清汤、火锅点鸳鸯、贵阳肠旺面和豆腐圆子。</p></div>
+  </div>
+
+  <h2>必备清单</h2>
+  <div class="pack">
+    <div class="pk hot"><div><b>身份证</b><span>高铁、所有景区实名、酒店全靠它。<b>贴身放。</b></span></div></div>
+    <div class="pk hot"><div><b>充电宝</b><span><b>必须有 3C 标识</b>（2025.6 起无 3C 不能上飞机），<b>不超 100 Wh，随身不托运</b>。</span></div></div>
+    <div class="pk"><div><b>雨具</b><span>冲锋衣最省事。雨衣<b>不用提前背</b>，水帘洞门口有卖。</span></div></div>
+    <div class="pk"><div><b>鞋袜</b><span>防滑运动鞋（<b>穿熟的</b>）＋ <b>至少两双备用袜子</b>。</span></div></div>
+    <div class="pk"><div><b>药</b><span><b>肠胃药</b>、感冒药、创可贴、晕车药。</span></div></div>
+    <div class="pk"><div><b>小背包</b><span>景区一走一整天，装水、外套。行李箱白天不用拖。</span></div></div>
+    <div class="pk no"><div><b>不用带</b><span>高反药（全程低海拔）、大量现金、干粮。</span></div></div>
+  </div>
+</section>
+
+<!-- 花销 -->
+<section class="pb">
+  <h2>花销明细</h2>
+  <p class="lede">两人合计，单位元。<span class="paid">已付</span>是确定金额，<span class="due">待付</span>按现行票价算。</p><div class="sumstrip">
+    <div class="tile"><span class="lbl">硬性支出</span><b class="big">约 7400</b><span class="sub">住宿＋高铁＋机票＋门票＋零散</span></div>
+    <div class="tile tot"><span class="lbl">合计 · 含吃饭</span><b class="big">约 9400–10300</b><span class="sub">吃饭按人均 120–180/天</span></div>
+    <div class="tile"><span class="lbl">最大单项 · 机票</span><b class="big">1650</b><span class="sub">ZH9402 1000 ＋ CA4391 650</span></div>
+    <div class="tile"><span class="lbl">最贵景区 · 黄果树</span><b class="big">520</b><span class="sub">套票已付，含观光车和扶梯</span></div>
+  </div>
+  <p class="note"><b>机票 1650 是最大单项，黄果树 520 是最贵的景区。</b>能省的：青城山索道单程省 50、大扶梯不坐省 100；<b>别省黄果树观光车</b>，三个片区离得远。</p>
+
+  <div class="scroller">
+    <table class="cost">
+      <tr class="grp"><td>住宿 · 两人一间</td><td class="num">2174</td><td></td></tr>
+      <tr><td>贵阳 亚朵 X（9.27–9.29，2 晚）</td><td class="num">472</td><td class="paid">已付</td></tr>
+      <tr><td>成都 全季金牛万达（9.29–10.4，5 晚）</td><td class="num">1702</td><td class="paid">已付</td></tr>
+
+      <tr class="grp"><td>高铁</td><td class="num">1593</td><td></td></tr>
+      <tr><td>G2946 广州南 → 贵阳北（你 1 人）</td><td class="num">420</td><td class="paid">已付</td></tr>
+      <tr><td>G2138 ＋ G203 衡阳东 → 贵阳北（朋友 1 人）</td><td class="num">313</td><td class="paid">已付</td></tr>
+      <tr><td>G5383 贵阳北 → 安顺西（52 × 2）</td><td class="num">104</td><td class="paid">已付</td></tr>
+      <tr><td>C6034 安顺西 → 贵阳北（41 × 2，G2842 候补中，兑现后 53 × 2）</td><td class="num">82</td><td class="paid">已付</td></tr>
+      <tr><td>C5980 贵阳北 → 乐山（243 × 2）</td><td class="num">486</td><td class="paid">已付</td></tr>
+      <tr><td>G918 乐山 → 成都东（54 × 2）</td><td class="num">108</td><td class="paid">已付</td></tr>
+      <tr><td>犀浦 ⇄ 离堆公园 往返（10 × 2 × 2）</td><td class="num">40</td><td class="due">当天</td></tr>
+      <tr><td>犀浦 ⇄ 青城山 往返（10 × 2 × 2）</td><td class="num">40</td><td class="due">9.18 买</td></tr>
+
+      <tr class="grp"><td>机票 · 10.4</td><td class="num">1650</td><td></td></tr>
+      <tr><td>ZH9402 双流 → 深圳宝安（你）</td><td class="num">1000</td><td class="paid">已付</td></tr>
+      <tr><td>CA4391 双流 → 长沙（朋友）</td><td class="num">650</td><td class="paid">已付</td></tr>
+
+      <tr class="grp"><td>门票 · 不含可选项</td><td class="num">1310</td><td></td></tr>
+      <tr><td>黄果树 门票＋观光车＋双程扶梯（260 × 2，12:30–14:30 档）</td><td class="num">520</td><td class="paid">已付</td></tr>
+      <tr><td>　└ 保险（10 × 2，可选）</td><td class="num tbd">20</td><td class="tbd">可选</td></tr>
+      <tr><td>乐山游船（70 × 2）</td><td class="num">140</td><td class="due">9.29 当日</td></tr>
+      <tr><td>都江堰（80 × 2）</td><td class="num">160</td><td class="due">9.16 零点</td></tr>
+      <tr><td>青城山前山（80 × 2）</td><td class="num">160</td><td class="due">9.18 零点</td></tr>
+      <tr><td>　└ 索道往返（60 × 2）＋ 渡船（5 × 2）</td><td class="num">130</td><td class="due">现场</td></tr>
+      <tr><td>武侯祠（50 × 2）</td><td class="num">100</td><td class="due">9.18</td></tr>
+      <tr><td>杜甫草堂（50 × 2）</td><td class="num">100</td><td class="due">现场</td></tr>
+
+      <tr class="grp"><td>零散交通 · 估算</td><td class="num">~670</td><td></td></tr>
+      <tr><td>安顺西 ⇄ 黄果树 直通车（22 × 2 人 × 往返）</td><td class="num">88</td><td class="due">现场</td></tr>
+      <tr><td>9.28 安顺西 ⇄ 市区吃饭（打车往返）</td><td class="num">~60</td><td class="due">现场</td></tr>
+      <tr><td>9.29 贵阳打车去车站 ＋ 乐山站⇄市区⇄码头</td><td class="num">~180</td><td class="due">现场</td></tr>
+      <tr><td>9.29 行李寄存（约 10 × 2）</td><td class="num">20</td><td class="due">现场</td></tr>
+      <tr><td>9.30 离堆公园站 ⇄ 6 号门（约 10 × 2 程）</td><td class="num">~30</td><td class="due">现场</td></tr>
+      <tr><td>10.2 青城山站 ⇄ 山门 观光车（10–18 × 2 × 2）</td><td class="num">~40</td><td class="due">现场</td></tr>
+      <tr><td>10.4 打车去双流 T2</td><td class="num">~100</td><td class="due">现场</td></tr>
+      <tr><td>贵阳 ＋ 成都地铁（八天两人）</td><td class="num">~150</td><td class="due">现场</td></tr>
+
+      <tr class="grp"><td>吃饭 · 估算</td><td class="num">~2000–2900</td><td></td></tr>
+      <tr><td>八天两人，按人均每天 120–180 算</td><td class="num"></td><td class="due">现场</td></tr>
+
+
+    </table>
+  </div>
+</section>
+
+<!-- 硬提醒 -->
+<section>
+  <h2>会踩的坑</h2>
+  <div class="pits">
+    <div class="pit hot"><span class="lbl">⚠ 别下错站</span><p><b>离堆公园站</b>在景区里、步行 5 分钟到景点；<b>都江堰站</b>在新城区、隔 4.27 公里。买票认准「离堆公园」。</p></div>
+    <div class="pit hot"><span class="lbl">⚠ 成都东</span><p><b>成都东上午没有去都江堰的直达车</b>，别在成都东干等。走犀浦。</p></div>
+    <div class="pit"><span class="lbl">贵阳三站</span><p><b>贵阳北、贵阳东、贵阳</b>是三个站，订票前对一眼。</p></div>
+    <div class="pit"><span class="lbl">火车北站＝1／7 号线</span><p>7 号线是环线，<b>上车前看清方向</b>。成都东直达 · 犀浦：一品天下换 2 号线 · 武侯祠：驷马桥换 3 号线 · 杜甫草堂：1 号线骡马市换 4 号线 · 双流：太平园换 10 号线。</p></div>
+    <div class="pit hot"><span class="lbl">⚠ 出入口</span><p>成都火车站在改造，地铁站 <b>A／D／E／H 出入口关闭</b>，实际只开 2 个。第一次找路多留 5 分钟。</p></div>
+    <div class="pit hot"><span class="lbl">⚠ 观光车是单向环线</span><p>票务中心发车，顺序固定<b>陡坡塘 → 天星桥 → 大瀑布 → 回票务中心</b>，<b>不能反着坐</b>。想先去大瀑布就得坐过站，玩完再绕一整圈才回得到天星桥，白搭 40 分钟车程。<b>顺着车走就是最优解</b>，一圈 23 公里、纯车程约 1 小时。</p></div>
+    <div class="pit"><span class="lbl">天星桥</span><p><b>精华在下半程</b>：天星洞、水上石林、银链坠潭瀑布。上半段「数生步」是平石板路，耗时无特色。<b>下半程约 3 公里、1.5–2 小时；走全程要 3–4 小时</b>，半天游客别硬走。<b>下半程 17:40 关。</b></p></div>
+    <div class="pit"><span class="lbl">黄果树 · 票</span><p>套票 260／人已付（门票 160 ＋ 观光车 50 ＋ 双程扶梯 50），保险 10 没买。<b>凭身份证直接进，无需换票</b>，首次刷证＋拍照，之后刷脸。日限 5 万人，现场不售票。</p></div>
+    <div class="pit"><span class="lbl">大瀑布 · 走法</span><p>扶梯在大瀑布景区，<b>往返已含在套票里</b>，单程约 5 分钟、省 30 分钟台阶。<b>下扶梯后先去水帘洞</b>（有截止时间），出洞再回<b>犀牛潭观景台</b>看正面全景，最后吊桥、扶梯上出园。全程不爬坡。</p></div>
+    <div class="pit hot"><span class="lbl">⚠ 水帘洞</span><p>含在门票里但<b>要单独预约</b>，<b>已改签 9.28 14:30–16:30</b>（安旅通，免费）。<b>16:30 硬截止</b>，凭身份证在洞口闸机核验，到场还能凭库存改一次时段。进＝浇透，洞口 5–10 元买雨衣、手机套防水袋；不进＝只在观景台看正面。</p></div>
+    <div class="pit"><span class="lbl">直通车</span><p>安顺西站<b>出站右前方客运站售票厅</b>买票，<b>22 元、35–40 分钟</b>，30 分钟一班或坐满即走。<b>首班 07:00、末班 18:00</b>，18:00–19:00 可联系加班车。</p></div>
+    <div class="pit"><span class="lbl">乐山大佛</span><p><b>船票和登山票是两张独立的票</b>：游船 70 元只能坐船；登山票 80 元含九曲栈道、乌尤寺、麻浩崖墓。<b>我们只买船票。</b></p></div>
+    <div class="pit hot"><span class="lbl">⚠ 游船码头会变</span><p><b>丰水期嘉州渡、枯水期乌尤寺</b>，9 月底多半还在丰水期，<b>以订单和 0833-2355557 为准</b>，别直接打车去乌尤寺。<b>凭当班船票可免费坐景区摆渡车</b>到码头。</p></div>
+    <div class="pit"><span class="lbl">游船</span><p>「大佛旅游」小程序，<b>仅当日可定</b>，<b>售票 07:30–18:00、登船 08:00–18:30</b>，滚动发班或半小时一班，全程 30–40 分钟，<b>在大佛正前方停留几分钟拍照</b>。凭身份证在码头窗口换实体票。</p></div>
+    <div class="pit"><span class="lbl">都江堰</span><p>成人 80，「青都票务」ticket.djy517.com，<b>预售 15 天含当日</b>（9.30 的票 9.16 零点开）。<b>入园分四档：8–10 / 10–12 / 12–14 / 14–17:30</b>，我们选 12–14。入园 8–18 点，20 点前须出园。</p></div>
+    <div class="pit"><span class="lbl">青城山</span><p>前山成人 80，同一「青都票务」，<b>10.2 的票 9.18 零点开，国庆高峰放票就买</b>。<b>8:00–17:30，17:00 停售</b>。渡船 5、索道单程 35／往返 60。<b>快铁站到山门约 6 公里</b>，观光车 10–18 元或 101 路。</p></div>
+    <div class="pit"><span class="lbl">10.4 返程</span><p>你 <b>ZH9402 11:50 → 深圳宝安 T3 14:15</b> · 朋友 <b>CA4391 11:55 → 长沙 14:05</b>。均已选座，<b>起飞前一天确认值机和航站楼</b>。同在双流 T2，08:15 一起打车。</p></div>
+    <div class="pit"><span class="lbl">两家酒店</span><p>贵阳<b>亚朵 X</b> 浣纱路 19 号，9.27–9.29，14:00 入住 · 成都<b>全季金牛万达</b> 北站西二路 17 号，9.29–10.4，14:00 入住、12:00 离店，<b>取消截止 9.28 18:00</b>，无早餐。</p></div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="dotkey"></span> 实心点是在车上／船上的一段，空心点是自己走。</div>
+  <div>车次票价取自 2026.9.15 实时时刻表（全部车次按实际乘车日期逐一核对），景区规则来自官方渠道。<b>出行前以 12306 App 与各景区官方小程序当日实际为准。</b></div>
+</footer>
+
+</div>
+</body></html>
