@@ -228,6 +228,17 @@
   .pk::before{border-radius:5px}
   footer{border-top:none;background:var(--surface);border-radius:16px;padding:18px 22px;box-shadow:var(--shadow-md)}
 
+
+  /* ---------- 页脚二维码 ---------- */
+  .foot-wrap{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;
+    border-top:1px solid var(--line);padding-top:18px;margin-top:4px}
+  .foot-wrap footer{border-top:none;padding-top:0;margin:0}
+  .qrbox{display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0}
+  .qrbox img{width:96px;height:96px;display:block;padding:7px;background:#fff;
+    border:1px solid var(--line);border-radius:6px}
+  .qrbox span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-faint);
+    text-align:center;line-height:1.5;white-space:nowrap}
+
   /* ---------- 打印 / PDF ---------- */
   @media print{
     /* 打印一律走浅色，别把深色模式印出来 */
@@ -348,6 +359,7 @@
   .dotkey{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--indigo);vertical-align:middle;margin-right:2px}
 
   @media (max-width:560px){
+    .foot-wrap{grid-template-columns:1fr;justify-items:center;gap:18px;text-align:center}
     .route{padding-top:16px}
     .stop::before{width:8px;height:8px;top:-16px}
     .stop b{font-size:13px}
@@ -741,10 +753,13 @@
   </div>
 </section>
 
+<div class="foot-wrap">
 <footer>
   <div><span class="dotkey"></span> 实心点是在车上／船上的一段，空心点是自己走。</div>
   <div>车次票价取自 2026.9.15 实时时刻表（全部车次按实际乘车日期逐一核对），景区规则来自官方渠道。<b>出行前以 12306 App 与各景区官方小程序当日实际为准。</b></div>
 </footer>
+  <div class="qrbox"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMyAzMyI+PHBhdGggc3Ryb2tlPSIjMTUyMTJlIiBkPSJNMCAwLjVoN20xIDBoMW0xIDBoMW0xIDBoMm0xIDBoNG0zIDBoM20xIDBoN20tMzMgMWgxbTUgMGgxbTIgMGgxbTMgMGgybTIgMGgxbTEgMGgybTEgMGgxbTMgMGgxbTUgMGgxbS0zMyAxaDFtMSAwaDNtMSAwaDFtNSAwaDFtMSAwaDJtMSAwaDFtMiAwaDJtMSAwaDJtMSAwaDFtMSAwaDNtMSAwaDFtLTMzIDFoMW0xIDBoM20xIDBoMW0xIDBoMW0zIDBoMW0yIDBoMm01IDBoM20xIDBoMW0xIDBoM20xIDBoMW0tMzMgMWgxbTEgMGgzbTEgMGgxbTEgMGgybTMgMGgxbTIgMGgzbTIgMGgxbTEgMGgxbTIgMGgxbTEgMGgzbTEgMGgxbS0zMyAxaDFtNSAwaDFtMSAwaDJtNCAwaDJtMiAwaDJtNiAwaDFtNSAwaDFtLTMzIDFoN20xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoN20tMjUgMWgxbTIgMGgxbTUgMGgxbTMgMGgxbTIgMGgxbS0yNSAxaDFtMyAwaDFtMSAwaDRtMiAwaDFtMiAwaDNtMSAwaDFtMSAwaDFtMSAwaDdtMiAwaDFtLTMzIDFoMW02IDBoNW0yIDBoNG0zIDBoM20xIDBoMW0zIDBoMm0tMzAgMWgybTMgMGg0bTMgMGgzbTIgMGgxbTEgMGgybTEgMGgzbTMgMGgxbS0yNyAxaDJtMyAwaDNtMiAwaDFtMyAwaDJtMiAwaDFtMSAwaDRtNCAwaDFtLTMwIDFoMW0zIDBoMW0zIDBoNG0xIDBoMm0xIDBoMW0xIDBoM20xIDBoMW0xIDBoMW0xIDBoMm0tMzAgMWgybTMgMGgxbTIgMGgybTEgMGg0bTMgMGgxbTMgMGgybTMgMGgxbTIgMGgxbS0yNyAxaDFtMSAwaDJtMSAwaDNtMiAwaDJtMSAwaDJtMSAwaDRtMSAwaDJtMSAwaDRtLTMyIDFoM20xIDBoMW0yIDBoMm0xIDBoM20xIDBoNW0xIDBoMm0xIDBoMW0xIDBoMm0yIDBoMW0tMjQgMWgybTQgMGgybTMgMGgxbTEgMGgzbTEgMGgybTEgMGgxbTEgMGgybTEgMGgxbS0zMSAxaDFtNSAwaDFtMSAwaDJtMyAwaDJtMiAwaDFtMyAwaDJtNSAwaDNtLTMwIDFoN20xIDBoMW0yIDBoM20xIDBoMW0yIDBoMW0xIDBoNG0xIDBoMW0xIDBoMW0tMjcgMWgxbTMgMGgxbTIgMGgxbTEgMGgzbTIgMGgxbTEgMGgzbTIgMGgybTEgMGgxbS0yOCAxaDdtMSAwaDJtMSAwaDFtMiAwaDJtMiAwaDJtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtLTMzIDFoM20yIDBoMW0xIDBoMm00IDBoMW0yIDBoMW0xIDBoMW00IDBoMW0xIDBoMW00IDBoMm0tMzAgMWg2bTIgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTQgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbS0yOSAxaDFtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDNtMiAwaDFtMyAwaDFtNCAwaDFtMSAwaDJtMiAwaDFtLTMzIDFoNW0xIDBoNG0xIDBoMW0yIDBoMm0xIDBoMm0xIDBoMm0xIDBoN20yIDBoMW0tMjUgMWgzbTIgMGg2bTIgMGgybTEgMGgxbTMgMGgxbTEgMGgxbS0zMSAxaDdtMSAwaDNtNCAwaDFtMiAwaDFtMiAwaDJtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDFtLTMyIDFoMW01IDBoMW0zIDBoMW0yIDBoNG0yIDBoM20yIDBoMW0zIDBoMW0yIDBoMW0tMzIgMWgxbTEgMGgzbTEgMGgxbTEgMGgxbTMgMGg1bTMgMGgzbTEgMGg2bTEgMGgxbS0zMiAxaDFtMSAwaDNtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDJtMiAwaDJtNCAwaDJtMSAwaDNtMSAwaDFtLTMxIDFoMW0xIDBoM20xIDBoMW0zIDBoMm0xIDBoMW0xIDBoMW0yIDBoMW0xIDBoMW0yIDBoMW0yIDBoNW0tMzEgMWgxbTUgMGgxbTQgMGg3bTEgMGgxbTEgMGgxbTIgMGgxbTEgMGgxbTIgMGgxbS0zMCAxaDdtMSAwaDRtMiAwaDFtMiAwaDFtMSAwaDNtMSAwaDJtMSAwaDFtMiAwaDFtMiAwaDEiLz48L3N2Zz4K" alt="扫码在手机上打开这份计划"><span>扫码用手机看<br>随时是最新版</span></div>
+</div>
 
 </div>
 </body></html>
