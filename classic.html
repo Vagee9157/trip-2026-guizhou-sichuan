@@ -256,13 +256,13 @@
     body{ background:#fff; font-size:10.5pt; line-height:1.6; }
     .wrap{ max-width:none; padding:0 12mm; gap:22px; }
     /* 自由流式：不强制分页，只保证单行不劈开、标题不孤悬页脚 */
-    .days{ gap:16px; }
+    .days{ gap:12px; }
     .day{ break-inside:avoid; page-break-inside:avoid; }  /* 一天一整块，塞不下就整块挪到下一页 */
     h2{ break-after:avoid; page-break-after:avoid; }
     /* 两天要塞进一页，字和间距都收一点 */
     .day-body{ padding:12px 18px 14px; gap:8px; }
     .legs{ gap:3px; }
-    .leg .d{ font-size:9.5pt; line-height:1.5; }
+    .leg .d{ font-size:9.5pt; line-height:1.45; }
     .note{ font-size:9pt; line-height:1.5; }
     h1{ font-size:26pt; }
     h2{ font-size:14pt; }
@@ -369,7 +369,10 @@
     .dblock .date{font-size:26px}
     .sumstrip{grid-template-columns:1fr 1fr}
     .todo li{grid-template-columns:1fr;gap:2px}
-    .legs{--tcol:50px;--tgap:20px}
+    .wrap{padding:28px 14px 56px}
+    .legs{--tcol:42px;--tgap:12px}
+    .leg .t{font-size:10.5px;letter-spacing:0}
+    .leg .t::after{width:7px;height:7px;margin-top:-3.5px;right:calc(-1*var(--tgap)/2 - 3.5px)}
     .facts th{width:auto;display:block;padding-bottom:2px;border:0}
     .facts td{display:block;padding-top:0}
     .facts tr{display:block;border-bottom:1px solid var(--line-soft);padding:10px 0}
@@ -385,7 +388,7 @@
     .tile,.pit{ border:1px solid var(--line); border-radius:8px; }
     .tip{ border:1px solid var(--line); border-left:4px solid var(--indigo); border-radius:0 8px 8px 0; }
     footer{ background:transparent; padding:12px 0 0; border-top:1px solid var(--line); border-radius:0; }
-    .day-body{ padding:10px 15px 11px; }
+    .day-body{ padding:9px 14px 10px; }
     .day-head{ padding:8px 15px 7px; }
     .note{ padding:7px 11px; }
     .tile{ padding:9px 12px 10px; } .wx{ gap:7px; }
@@ -529,8 +532,8 @@
         <li class="leg"><span class="t">11:50</span><p class="d"><strong>午饭，留一个半小时。</strong>跷脚牛肉点一锅原汤（<strong>冯四嬢、谢老五</strong>都在这条街），钵钵鸡认<strong>五通黄娘</strong>，再配甜皮鸭、豆腐脑。麻辣烫有熊家婆、谭三妹。</p></li>
         <li class="leg"><span class="t">13:20</span><p class="d">起身打车去码头。<strong>⚠ 上船点看水位定</strong>：丰水期在<strong>嘉州渡</strong>、枯水期在<strong>乌尤寺</strong>，<b>按订单上写的走，别默认乌尤寺</b>。<strong>13:50 到</strong>，凭身份证换实体票候船。</p></li>
         <li class="leg"><span class="t ride">14:00</span><p class="d">上船，<strong>30–40 分钟</strong>，大佛正前方停留拍照。<strong>坐满即发</strong>，别掐点。</p></li>
-        <li class="leg"><span class="t">15:00</span><p class="d">下船，剩两小时。<strong>回张公桥二刷</strong>（叶儿粑、蛋烘糕、油炸串串当下午茶），或打车 20 分钟去<strong>苏稽古镇</strong>（跷脚牛肉发源地）。</p></li>
-        <li class="leg"><span class="t">16:50</span><p class="d">打车回乐山站取包（城外，留 20–30 分钟）。</p></li>
+        <li class="leg"><span class="t">15:00</span><p class="d">下船。<strong>去苏稽古镇</strong>——跷脚牛肉发源地，在城西青衣江边，<strong>顺路去乐山站不走回头路</strong>。主街不到 500 米、20 多家老字号，<strong>逛吃 1 小时够</strong>，米花糖、甜皮鸭带走。懒得挪就回张公桥二刷。</p></li>
+        <li class="leg"><span class="t">16:50</span><p class="d">苏稽打车去乐山站取包（15–20 分钟）。<strong>留足 30 分钟</strong>，寄存点在出站口 480 米外。</p></li>
         <li class="leg"><span class="t ride">17:35</span><p class="d"><strong>9.29 G918</strong> 乐山 17:35 开 → <strong>成都东 18:21 到</strong>，54 元。已购。当天 64 趟，改签随意：C5786 17:45、C6312 19:00，末班 22:12。</p></li>
         <li class="leg"><span class="t">19:00</span><p class="d">入住<strong>全季酒店（成都金牛万达店）</strong>，金牛区北站西二路 17 号，<strong>9.29–10.4 共 5 晚</strong>。<strong>成都东坐 7 号线直达火车北站</strong>。</p></li>
       </ul>
@@ -554,7 +557,7 @@
         <li class="leg"><span class="t">11:30</span><p class="d">出站就是<strong>灌县古城</strong>，<strong>先在南桥一带吃午饭</strong>。<strong>马嬢嬢饭店</strong>无菜单现点现炒、人均 40；想吃重口就<strong>尤兔头</strong>（卤兔头）或<strong>川江渔府</strong>鱼火锅（配手工豆浆馍馍）。杨柳河街一线小吃多。</p></li>
         <li class="leg"><span class="t">12:30</span><p class="d">吃完打车上 6 号门，<strong>跟司机说「秦堰楼」</strong>，约 10 元、10 分钟（2.5 公里盘山路，走不上去）。</p></li>
         <li class="leg"><span class="t">12:45</span><p class="d">进园（12:00–14:00 时段内）。<strong>6 号门是省力走法</strong>——秦堰楼在景区最高点，从上往下走，比从离堆公园正门进<strong>少爬 40 分钟坡</strong>。<strong>全程下坡约 3 小时</strong>：秦堰楼 → 二王庙 → 安澜索桥 → <strong>鱼嘴 → 飞沙堰 → 宝瓶口</strong> → 伏龙观 → 堰功道 → 清溪园，<strong>1 号门出</strong>。入园 8–18 点，<strong>20 点前须出园</strong>。</p></li>
-        <li class="leg"><span class="t">15:45</span><p class="d">出 1 号门又回到古城，找个茶馆坐到不想坐为止。</p></li>
+        <li class="leg"><span class="t">15:45</span><p class="d">出 1 号门回古城。<strong>西街</strong>（340 米茶马古道起点，老玉石铺子）→ <strong>杨柳河</strong>沿岸茶社，挑一家坐到不想走。<strong>南桥</strong>是清代廊桥，天擦黑亮灯最好看。</p></li>
         <li class="leg"><span class="t">17:00</span><p class="d">古城<strong>步行 5 分钟就是离堆公园站</strong>，坐回犀浦。末班 21:56，随便挑。</p></li>
       </ul>
       <p class="note"><b>6 号门单循环：只验票进、出口关闭</b>，进去没法原路折返，东西别落在门口。</p>
@@ -573,7 +576,7 @@
         <li class="leg"><span class="t">09:00</span><p class="d">睡到自然醒，早饭。</p></li>
         <li class="leg"><span class="t">10:15</span><p class="d">出发：<strong>1 号线 → 省体育馆换 3 号线 → 高升桥</strong>（或 7 号线 → 驷马桥换 3 号线），约 40 分钟。</p></li>
         <li class="leg"><span class="t">11:00</span><p class="d"><strong>武侯祠</strong> 50 元，预约 <strong>11:00–13:00</strong> 时段，文物区 08:30–18:00。<strong>顺路线走不回头</strong>：大门 → 文臣武将廊 → 刘备殿 → 诸葛亮殿 → 三义庙 → 惠陵 → <strong>红墙竹影</strong>（全院最出片，走到底就是锦里门口）。<strong>两小时足够。</strong></p></li>
-        <li class="leg"><span class="t">13:00</span><p class="d">出来隔壁就是<strong>锦里</strong>，国庆白天人贴人，<strong>穿一遍不久留</strong>。午饭<strong>往外走两条街</strong>，别在锦里里面吃。<strong>纪念品别在门口买</strong>，往里走同款便宜一截。</p></li>
+        <li class="leg"><span class="t">13:00</span><p class="d">隔壁就是<strong>锦里</strong>，<strong>全长才 350 米</strong>，国庆人贴人，<strong>穿一遍不久留</strong>。「好吃街」买三大炮、糖油果子边走边吃；<strong>正经午饭往外走两条街</strong>。<strong>纪念品别在门口买</strong>，往里走同款便宜一截。</p></li>
         <li class="leg"><span class="t">15:00</span><p class="d">回程顺路<strong>文殊院</strong>（免费，1 号线文殊院站，离酒店两站）。<strong>进门处免费领一炷香，不用自己买</strong>。院里茶园清静，坐一下午；旁边<strong>文殊坊</strong>有小吃。</p></li>
         <li class="leg"><span class="t">晚</span><p class="d">火锅，<strong>下午就在大众点评上取号</strong>，黄金周排队两小时起，<strong>避开 18–20 点这一档</strong>、晚一点去反而快。想看<strong>锦里亮灯</strong>（约 19:00）就晚饭后再过去一趟，不想折腾就算了。</p></li>
       </ul>
@@ -592,7 +595,7 @@
       <ul class="legs">
         <li class="leg"><span class="t ride">09:00</span><p class="d">出门。<strong>7 号线 → 一品天下换 2 号线 → 犀浦</strong>，同站台换成灌快铁 → <strong>青城山站</strong>（10 元，<strong>票 9.18 起在 12306 买：S5011 10:01 → 10:34 或 S5087 10:10 → 10:44</strong>）。<strong>7 号线认准一品天下方向。</strong></p></li>
         <li class="leg"><span class="t">10:45</span><p class="d">青城山站出来<strong>离前山山门约 6 公里</strong>：坐<strong>景区观光车 10–18 元，约 10 分钟</strong>；或 101 路公交。<strong>11:00 前后到山门</strong>，在 10–12 时段内。</p></li>
-        <li class="leg"><span class="t">11:00</span><p class="d">前山 80 元。山门 → 雨亭 → <strong>月城湖</strong>（步行 15–20 分钟）→ <strong>渡船 5 元过湖</strong>（或走环湖栈道 10 分钟），<strong>对岸就是步云廊索道下站</strong>，船票索道票都在那儿买 → <strong>索道</strong>（980 米，单程 35／往返 60，<strong>8:30–17:30</strong>）到四望观 → 上清宫（走 20–30 分钟）→ <strong>老君阁</strong>登顶（30–40 分钟）。<strong>上清宫斋堂有青城素面、豆腐宴、竹筒饭</strong>，山上就在那儿吃。<strong>索道排队算 30–60 分钟</strong>，山上或者上清宫附近吃午饭。</p></li>
+        <li class="leg"><span class="t">11:00</span><p class="d">前山 80 元。山门 → 雨亭 → <strong>月城湖</strong>（步行 15–20 分钟）→ <strong>渡船 5 元过湖</strong>（或走环湖栈道 10 分钟），<strong>对岸就是步云廊索道下站</strong>，船票索道票都在那儿买 → <strong>索道</strong>（980 米，单程 35／往返 60，<strong>8:30–17:30</strong>）到四望观 → <strong>上清宫</strong>（20–30 分钟；晋代始建，麻姑池、鸳鸯井、张大千画碑）→ <strong>老君阁</strong>（再上 20–30 分钟，绝顶 1260 米，7 米老君骑牛铜像，<strong>360 度看成都平原</strong>）。<strong>上清宫斋堂有青城素面、豆腐宴、竹筒饭</strong>，山上就在那儿吃。<strong>索道排队算 30–60 分钟</strong>，山上或者上清宫附近吃午饭。</p></li>
         <li class="leg"><span class="t">14:30</span><p class="d">原路索道下，约 15:30 出山门。<strong>体力还行</strong>可以改走下山那段<strong>朝阳洞、天师洞、天然图画</strong>，前山风景最好的一段，多花一个半小时，17:00 前出山。</p></li>
         <li class="leg"><span class="t">⚠ 17:00</span><p class="d">青城山 <strong>17:00 停售当日票、17:30 关门</strong>。观光车回快铁站，S5054 18:06 → 犀浦 18:36（10 元，班次到 22:44），原路回火车北站，约 19:15 到。</p></li>
       </ul>
@@ -609,7 +612,7 @@
       </div>
     <div class="day-body">
       <ul class="legs">
-        <li class="leg"><span class="t">睡到自然醒</span><p class="d"><strong>今天没有闹钟、没有赶车。</strong></p></li>
+        <li class="leg"><span class="t">睡醒</span><p class="d"><strong>今天没有闹钟、没有赶车。</strong></p></li>
         <li class="leg"><span class="t">上午</span><p class="d"><strong>杜甫草堂</strong> 50 元，青华路 37 号，<strong>9:00–18:00、17:00 停售</strong>。<strong>1 号线 → 骡马市换 4 号线 → 草堂北路</strong>。<strong>现场凭身份证能买</strong>，不用预约。<strong>路线</strong>：大廨 → 诗史堂 → 工部祠 → <strong>茅屋故居</strong> → 花径 → <strong>大雅堂</strong> → 南门出，<strong>1.5–2 小时</strong>，南门外就是浣花溪公园。</p></li>
         <li class="leg"><span class="t">中午</span><p class="d">草堂附近吃。青羊宫（票价很低）、浣花溪公园（免费）都在旁边，想加就加。</p></li>
         <li class="leg"><span class="t">下午</span><p class="d"><strong>人民公园・鹤鸣茶社</strong>，公园免门票，盖碗茶几十块，<strong>掏耳朵</strong>。<strong>早点去占湖边的位子</strong>，去晚了只剩树荫里的散座。出门几步是<strong>宽窄巷子</strong>（免费，人多就只穿一遍）。</p></li>
