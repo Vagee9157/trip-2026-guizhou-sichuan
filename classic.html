@@ -365,10 +365,18 @@
     .stop b{font-size:13px}
     .stop span{font-size:9px;letter-spacing:0}
     .pair,.pack,.pits{grid-template-columns:1fr}
-    .day-head{grid-template-columns:auto 1fr;padding:12px 16px} .day-head .tag.stay{grid-column:1/-1;justify-self:start}
+    /* 卡头两行：上行 日期 ┄ 住哪；下行 标题＋标签 */
+    .day-head{grid-template-columns:auto 1fr;padding:12px 16px;align-items:center}
+    .dblock{grid-row:1;grid-column:1}
+    .day-head .tag.stay{grid-row:1;grid-column:2;justify-self:end}
+    .dmid{grid-row:2;grid-column:1/-1;margin-top:8px}
     .dblock .date{font-size:26px}
     .sumstrip{grid-template-columns:1fr 1fr}
-    .todo li{grid-template-columns:1fr;gap:2px}
+    /* 日历一条两行：上行 勾选框＋时间；下行 正文占满宽 */
+    .todo li{grid-template-columns:18px 1fr;gap:4px 9px;align-items:center}
+    .todo li::before{margin-top:0}
+    .todo .when{padding-top:0}
+    .todo li p{grid-column:1/-1}
     .wrap{padding:28px 14px 56px}
     .legs{--tcol:42px;--tgap:12px}
     .leg .t{font-size:10.5px;letter-spacing:0}
