@@ -404,20 +404,21 @@
     .tip{ padding:9px 12px 10px; }
   }
 
-  /* 顶部实时北京时间 —— 两版共用结构，手账版在 style-d.css 里改皮 */
+  /* 顶部：行程区间 + 实时北京时间，同一行 */
+  .topline{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
   .now{
-    display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;
+    display:flex;align-items:baseline;gap:8px;
     font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);
-    padding:7px 13px;border:1px solid var(--line-soft);border-radius:10px;
-    background:var(--surface);width:max-content;max-width:100%;
   }
-  .now .nd{color:var(--ink-soft);font-weight:500;letter-spacing:.02em}
-  .now .nt{font-size:13.5px;color:var(--indigo);font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.04em}
-  .now .nz{letter-spacing:.12em}
-  .now .nc{padding-left:9px;border-left:1px solid var(--line-soft);color:var(--busy-deep);font-weight:500;letter-spacing:.02em}
+  .now .nd{color:var(--ink-soft);letter-spacing:.02em}
+  .now .nt{font-size:13px;color:var(--indigo);font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .now .nz{letter-spacing:.1em}
+  .now .nc{padding-left:9px;border-left:1px solid var(--line);color:var(--busy-deep);font-weight:500}
   @media (max-width:560px){
-    .now{gap:7px;padding:6px 10px;font-size:10.5px}
-    .now .nt{font-size:12.5px}
+    .topline{gap:8px}
+    .now{gap:6px;font-size:10.5px}
+    .now .nt{font-size:12px}
+    .now .nz{display:none}          /* 手机上省掉「北京时间」四个字，给倒计时腾地方 */
     .now .nc{padding-left:7px}
   }
 </style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>
@@ -548,9 +549,8 @@ footer{border-top:2px dashed var(--line)}
     .note{ padding:8px 10px; }
   }
 
-/* 顶部实时北京时间：手账版做成便签贴纸 */
-.now{background:var(--surface);border:1.5px dashed var(--line);border-radius:7px;
-     transform:rotate(-.5deg);box-shadow:0 1px 0 rgba(59,48,41,.05)}
+/* 顶部时间跟在胶带标签后面，纯文字，不再另起一个框 */
+.now{background:none;border:0;box-shadow:none;transform:none;padding:0}
 .now .nd{font-family:var(--sans)}
 .now .nc{border-left-color:var(--line)}
 </style></head><body>
@@ -558,10 +558,12 @@ footer{border-top:2px dashed var(--line)}
 <div class="wrap">
 
 <header>
-  <div class="now" id="now" hidden>
-    <span class="nd"></span><span class="nt"></span><span class="nz">北京时间</span><span class="nc"></span>
+  <div class="topline">
+    <div class="eyebrow">9.27 — 10.4 · 八天七晚 · 高铁为主</div>
+    <div class="now" id="now" hidden>
+      <span class="nd"></span><span class="nt"></span><span class="nz">北京时间</span><span class="nc"></span>
+    </div>
   </div>
-  <div class="eyebrow">9.27 — 10.4 · 八天七晚 · 高铁为主</div>
   <h1 class="thin">2026 牛马逃离计划</h1>
   <div class="route" aria-label="线路">
     <div class="stop peak"><b>贵阳</b><span>9.27</span></div>
