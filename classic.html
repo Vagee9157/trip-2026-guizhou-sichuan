@@ -403,11 +403,31 @@
     .pit{ padding:7px 10px 8px; } .pit p{ font-size:8.2pt; line-height:1.45; } .pit .lbl{ font-size:9.5px; margin-bottom:2px; } .pits{ gap:6px; }
     .tip{ padding:9px 12px 10px; }
   }
+
+  /* 顶部实时北京时间 —— 两版共用结构，手账版在 style-d.css 里改皮 */
+  .now{
+    display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);
+    padding:7px 13px;border:1px solid var(--line-soft);border-radius:10px;
+    background:var(--surface);width:max-content;max-width:100%;
+  }
+  .now .nd{color:var(--ink-soft);font-weight:500;letter-spacing:.02em}
+  .now .nt{font-size:13.5px;color:var(--indigo);font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .now .nz{letter-spacing:.12em}
+  .now .nc{padding-left:9px;border-left:1px solid var(--line-soft);color:var(--busy-deep);font-weight:500;letter-spacing:.02em}
+  @media (max-width:560px){
+    .now{gap:7px;padding:6px 10px;font-size:10.5px}
+    .now .nt{font-size:12.5px}
+    .now .nc{padding-left:7px}
+  }
 </style></head><body>
 
 <div class="wrap">
 
 <header>
+  <div class="now" id="now" hidden>
+    <span class="nd"></span><span class="nt"></span><span class="nz">北京时间</span><span class="nc"></span>
+  </div>
   <div class="eyebrow">9.27 — 10.4 · 八天七晚 · 高铁为主</div>
   <h1 class="thin">2026 牛马逃离计划</h1>
   <div class="route" aria-label="线路">
@@ -771,4 +791,28 @@
 </div>
 
 </div>
+
+<script>
+(function(){
+  var el=document.getElementById('now'); if(!el||!window.Intl) return;
+  // 行程八天，按北京时区的日历日判断今天是第几天
+  var TRIP=['贵阳','黄果树','乐山','都江堰','武侯祠','青城山','草堂','返程'];
+  var START=Date.UTC(2026,8,27);          // 2026-09-27
+  var fmt=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',
+    year:'numeric',month:'numeric',day:'numeric',weekday:'short',
+    hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
+  var nd=el.querySelector('.nd'), nt=el.querySelector('.nt'), nc=el.querySelector('.nc');
+  function tick(){
+    var p={}; fmt.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
+    nd.textContent=p.year+'年'+p.month+'月'+p.day+'日 '+p.weekday;
+    nt.textContent=p.hour+':'+p.minute+':'+p.second;
+    var diff=Math.round((Date.UTC(+p.year,+p.month-1,+p.day)-START)/864e5);
+    nc.textContent = diff<0  ? '距出发还剩 '+(-diff)+' 天'
+                   : diff<8  ? '第 '+(diff+1)+' 天 · '+TRIP[diff]
+                             : '旅程已结束';
+    el.hidden=false;
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
 </body></html>
